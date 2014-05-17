@@ -7,6 +7,7 @@
 package gestionagenda;
 
 import clinicadental.Clinica;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
@@ -52,9 +53,14 @@ public class AgendaUI extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setAutoscrolls(true);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(400, 400));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(400, 400));
         jScrollPane1.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        tablaCitas.setAutoCreateRowSorter(true);
         tablaCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -71,9 +77,6 @@ public class AgendaUI extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 352;
-        gridBagConstraints.ipady = 248;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(11, 13, 11, 10);
@@ -126,15 +129,17 @@ public class AgendaUI extends javax.swing.JFrame {
     }
     
      private void rellenarTabla()
-    {
+    {        
         ArrayList<Cita> citas = Clinica.getAgenda();
         Object[][] datos = new Object[citas.size()][5];
         String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta", "Realizada"};
 
+        tablaCitas.setPreferredSize(new Dimension(400,citas.size() * 16 ));
+        
         for (int i = 0; i < citas.size(); i++)
         {
             for (int j = 0; j < 4; j++){
-                datos[i][j] = citas.get(i).datosTabla()[j];
+                datos[i][j] = citas.get(i).datosTabla()[j];                
             }
         }
         
