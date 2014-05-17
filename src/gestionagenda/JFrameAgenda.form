@@ -205,9 +205,9 @@
                   <EmptySpace min="0" pref="599" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="73" max="32767" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" pref="579" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -237,7 +237,7 @@
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.table.DefaultTableModel(datos(),cabecera()){&#xa;            Class[] types = new Class [] {&#xa;                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.util.Date.class, java.lang.String.class, java.lang.Boolean.class&#xa;            };&#xa;            boolean[] canEdit = new boolean [] {&#xa;                false, false, false, false, false, false, true&#xa;            };&#xa;&#xa;            public Class getColumnClass(int columnIndex) {&#xa;                return types [columnIndex];&#xa;            }&#xa;&#xa;            public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;                return canEdit [columnIndex];&#xa;            }&#xa;        }" type="code"/>
+                      <Connection code="new javax.swing.table.DefaultTableModel(datos(),cabecera()){&#xa;            Class[] types = new Class [] {&#xa;                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class&#xa;            };&#xa;            boolean[] canEdit = new boolean [] {&#xa;                false, false, false, false, false, false, true&#xa;            };&#xa;&#xa;            public Class getColumnClass(int columnIndex) {&#xa;                return types [columnIndex];&#xa;            }&#xa;&#xa;            public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;                return canEdit [columnIndex];&#xa;            }&#xa;        }" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>

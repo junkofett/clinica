@@ -124,20 +124,20 @@ public class ClinicaDentalMain {
          Clinica.anadirCita(2, p[1], i2,false);
          Clinica.anadirCita(2, p[1], i2,true);*/
         
-        Date d = new Date(114, 8, 9, 10, 0);
-        String st = d.toString();
-        SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-        st = sd.format(d);
-        try {
-        d = sd.parse(st);
-        System.out.println(st);
-        } catch (ParseException e){
-            System.out.println("error");    
-        }
+//        Date d = new Date(114, 8, 9, 10, 0);
+//        String st = d.toString();
+//        SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+//        st = sd.format(d);
+//        try {
+//        d = sd.parse(st);
+//        System.out.println(st);
+//        } catch (ParseException e){
+//            System.out.println("error");    
+//        }
         
         
           
         //AgendaUI.main(args);
-        //JFrameAgenda.main(args);
+        JFrameAgenda.main(args);
     }
 }

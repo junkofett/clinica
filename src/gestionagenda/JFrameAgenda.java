@@ -95,7 +95,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jTableAgenda.setAutoCreateRowSorter(true);
         jTableAgenda.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.util.Date.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, true
@@ -118,9 +118,9 @@ public class JFrameAgenda extends javax.swing.JFrame {
             .addGap(0, 599, Short.MAX_VALUE)
             .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
-                    .addContainerGap(73, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(74, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanelTablaLayout.setVerticalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +235,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
     }
     
     private String[] cabecera() {
-        String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta","Fecha", "Horas", "Realizada"};
+        String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta", "Fecha", "Realizada"};
         return cabecera;
     }
     
