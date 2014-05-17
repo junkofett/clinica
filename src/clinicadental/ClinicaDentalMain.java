@@ -12,6 +12,7 @@ import gestionpacientes.*;
 import gestionagenda.*;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -30,9 +31,9 @@ public class ClinicaDentalMain {
         Paciente[] p = {new Paciente(77, "Loreto", "Prieto", "Memoles", 98698),
                         new Paciente(2534, "Manuel", "Revilla", "Tosco", 32752),
                         new Paciente(0130, "Wiliamsito", "Vargas", "Motoche", 572357)};      
-        Intervencion i1 = new Intervencion(emples, "Ortodoncia", 30);
-        Intervencion i2 = new Intervencion(emples, "Limpieza", 80);
-        Intervencion i3 = new Intervencion(emples, "Empaste", 50);
+        Intervencion i1 = new Intervencion(emples, "Ortodoncia", 30,120);
+        Intervencion i2 = new Intervencion(emples, "Limpieza", 80,90);
+        Intervencion i3 = new Intervencion(emples, "Empaste", 50,200);
         
         Clinica.anadirCliente(p);
         
@@ -44,7 +45,32 @@ public class ClinicaDentalMain {
         Clinica.anadirIntervencion(i2);
         Clinica.anadirIntervencion(i3);
         
-        Clinica.anadirCita(4, p[0], i1,true);
+        Clinica.anadirCita(4, p[0], i1,true, new Date(2014,5,3,16,30));
+        Clinica.anadirCita(2, p[1], i2,true,new Date(2014,3,3,19,00));
+        Clinica.anadirCita(4, p[0], i1,false,new Date(2014,2,3,22,00));
+        Clinica.anadirCita(2, p[1], i2,false,new Date(2014,6,3,13,30));
+        Clinica.anadirCita(2, p[1], i2,true,new Date(2014,9,3,18,00));
+          Clinica.anadirCita(4, p[0], i1,true,new Date(2014,4,2,16,30));
+        Clinica.anadirCita(2, p[1], i2,true,new Date(2014,5,3,2,30));
+        Clinica.anadirCita(4, p[0], i1,false,new Date(2014,7,3,8,00));
+        Clinica.anadirCita(2, p[1], i2,false,new Date(2014,3,3,11,30));
+        Clinica.anadirCita(2, p[1], i2,true,new Date(2014,5,1,12,00));
+          Clinica.anadirCita(4, p[0], i1,true,new Date(2014,2,5,16,30));
+        /*Clinica.anadirCita(2, p[1], i2,true);
+        Clinica.anadirCita(4, p[0], i1,false);
+        Clinica.anadirCita(2, p[1], i2,false);
+        Clinica.anadirCita(2, p[1], i2,true);
+          Clinica.anadirCita(4, p[0], i1,true);
+        Clinica.anadirCita(2, p[1], i2,true);
+        Clinica.anadirCita(4, p[0], i1,false);
+        Clinica.anadirCita(2, p[1], i2,false);
+        Clinica.anadirCita(2, p[1], i2,true);
+          Clinica.anadirCita(4, p[0], i1,true);
+        Clinica.anadirCita(2, p[1], i2,true);
+        Clinica.anadirCita(4, p[0], i1,false);
+        Clinica.anadirCita(2, p[1], i2,false);
+        Clinica.anadirCita(2, p[1], i2,true);
+         Clinica.anadirCita(4, p[0], i1,true);
         Clinica.anadirCita(2, p[1], i2,true);
         Clinica.anadirCita(4, p[0], i1,false);
         Clinica.anadirCita(2, p[1], i2,false);
@@ -93,32 +119,7 @@ public class ClinicaDentalMain {
         Clinica.anadirCita(2, p[1], i2,true);
         Clinica.anadirCita(4, p[0], i1,false);
         Clinica.anadirCita(2, p[1], i2,false);
-        Clinica.anadirCita(2, p[1], i2,true);
-         Clinica.anadirCita(4, p[0], i1,true);
-        Clinica.anadirCita(2, p[1], i2,true);
-        Clinica.anadirCita(4, p[0], i1,false);
-        Clinica.anadirCita(2, p[1], i2,false);
-        Clinica.anadirCita(2, p[1], i2,true);
-          Clinica.anadirCita(4, p[0], i1,true);
-        Clinica.anadirCita(2, p[1], i2,true);
-        Clinica.anadirCita(4, p[0], i1,false);
-        Clinica.anadirCita(2, p[1], i2,false);
-        Clinica.anadirCita(2, p[1], i2,true);
-          Clinica.anadirCita(4, p[0], i1,true);
-        Clinica.anadirCita(2, p[1], i2,true);
-        Clinica.anadirCita(4, p[0], i1,false);
-        Clinica.anadirCita(2, p[1], i2,false);
-        Clinica.anadirCita(2, p[1], i2,true);
-          Clinica.anadirCita(4, p[0], i1,true);
-        Clinica.anadirCita(2, p[1], i2,true);
-        Clinica.anadirCita(4, p[0], i1,false);
-        Clinica.anadirCita(2, p[1], i2,false);
-        Clinica.anadirCita(2, p[1], i2,true);
-          Clinica.anadirCita(4, p[0], i1,true);
-        Clinica.anadirCita(2, p[1], i2,true);
-        Clinica.anadirCita(4, p[0], i1,false);
-        Clinica.anadirCita(2, p[1], i2,false);
-        Clinica.anadirCita(2, p[1], i2,true);
+        Clinica.anadirCita(2, p[1], i2,true);*/
         
         //AgendaUI.main(args);
         LoginJframe.main(args);
