@@ -145,7 +145,7 @@ public class AgendaUI extends javax.swing.JFrame {
         
         tablaCitas.setModel(new javax.swing.table.DefaultTableModel(datos,cabecera){
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false

@@ -121,5 +121,6 @@ public class ClinicaDentalMain {
         Clinica.anadirCita(2, p[1], i2,true);
         
         AgendaUI.main(args);
+        //LoginJframe.main(args);
     }
 }
