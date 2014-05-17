@@ -20,11 +20,13 @@ public class Intervencion {
     private ArrayList<Empleado> personal;
     private int precio;
     private ArrayList<Articulo> material;
+    private int duracion;
 
-    public Intervencion(ArrayList<Empleado> personal, String nombre, int precio) {
+    public Intervencion(ArrayList<Empleado> personal, String nombre, int precio, int duracion) {
         this.nombre = nombre;
         this.personal = personal;
         this.precio = precio;
+        this.duracion = duracion;
     }
     
     public String getNombre(){
@@ -33,6 +35,10 @@ public class Intervencion {
     
     public int getPrecio(){
         return precio;
+    }
+
+    public int getDuracion() {
+        return duracion;
     }
     
     public String toString(){

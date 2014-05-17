@@ -4,7 +4,7 @@
  */
 package clinicadental;
 
-import gestionagenda.AgendaUI;
+import gestionagenda.JFrameAgenda;
 import gestionempleados.Empleado;
 import java.util.ArrayList;
 
@@ -153,7 +153,7 @@ public class LoginJframe extends javax.swing.JFrame {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         String contrasena = String.copyValueOf(jPasswordFieldPass.getPassword());
         String usuario = jTextFieldUsuario.getText();
-        AgendaUI agenda = new AgendaUI();
+        JFrameAgenda agenda = new JFrameAgenda();
         
         if (comprobarUsuario(usuario) && comprobarContrasena(contrasena)) {
             agenda.setVisible(true);

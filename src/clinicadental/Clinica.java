@@ -13,6 +13,7 @@ import gestionintervencion.Intervencion;
 import gestionpacientes.Paciente;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -26,9 +27,9 @@ public class Clinica {
     private static ArrayList<Articulo> inventario = new ArrayList<>();
     private static ArrayList<Intervencion> intervenciones = new ArrayList<>();
     
-    public static void anadirCita(int consulta, Paciente p, Intervencion inter, boolean realizada)
+    public static void anadirCita(int consulta, Paciente p, Intervencion inter, boolean realizada, Date momento)
     {
-        agenda.add(new Cita(consulta,p,inter,realizada));
+        agenda.add(new Cita(consulta,p,inter,realizada, momento));
     }
     public static void anadirEmpleado(Empleado empleado)
     {

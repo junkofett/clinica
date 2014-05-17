@@ -10,6 +10,7 @@ import gestionintervencion.Intervencion;
 import gestionpacientes.Paciente;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -19,30 +20,34 @@ public class Cita {
     
     private static int idStatic;
     private int id;
-    private Calendar fechaInicio;
-    private Calendar fechaFin;
+    private Date fechaInicio;
     private int consulta;
     private Paciente paciente;
     private Intervencion intervencion;
     private boolean realizada;
     
-    public Cita(int consulta, Paciente p, Intervencion inter, boolean realizada){
+    public Cita(int consulta, Paciente p, Intervencion inter, boolean realizada, Date momento){
         id = ++idStatic;
         this.realizada = realizada;
         this.consulta = consulta;
         paciente = p;
         intervencion = inter;
+        fechaInicio = momento;
     }
     
     public Object[] datosTabla(){
         Object[] s = {id, paciente.getNombre()+", "+paciente.getApellido1(),
-                    intervencion.getNombre(),getConsulta(),new Boolean(realizada)};   
+                    intervencion.getNombre(),getConsulta(),fechaInicio, new Boolean(realizada)};   
     
         return s;            
     }
     
     public boolean getRealizada(){
         return realizada;
+    }
+    
+    public String hora() {
+        return fechaInicio.getHours()+":"+fechaInicio.getMinutes();
     }
     
     public int getConsulta(){

@@ -5,8 +5,8 @@
 package gestionagenda;
 
 import clinicadental.*;
-import gestionagenda.AgendaUI;
 import gestionempleados.Empleado;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 /**
@@ -41,11 +41,19 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonPaciente = new javax.swing.JButton();
         jButtonAgenda = new javax.swing.JButton();
         jButtonIntervencion = new javax.swing.JButton();
+        jPanelTabla = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableAgenda = new javax.swing.JTable();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanelContenido.setOpaque(false);
@@ -77,15 +85,52 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonAgenda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonAgenda.setText("AGENDA");
         jButtonAgenda.setFocusable(false);
-        jButtonAgenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgendaActionPerformed(evt);
-            }
-        });
 
         jButtonIntervencion.setBackground(new java.awt.Color(153, 204, 255));
         jButtonIntervencion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonIntervencion.setText("INTERVENCIONES");
+
+        jPanelTabla.setOpaque(false);
+
+        jTableAgenda.setAutoCreateRowSorter(true);
+        jTableAgenda.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.util.Date.class, java.lang.String.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTableAgenda);
+
+        javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
+        jPanelTabla.setLayout(jPanelTablaLayout);
+        jPanelTablaLayout.setHorizontalGroup(
+            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 599, Short.MAX_VALUE)
+            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
+                    .addContainerGap(73, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(74, Short.MAX_VALUE)))
+        );
+        jPanelTablaLayout.setVerticalGroup(
+            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 248, Short.MAX_VALUE)
+            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
 
         javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
         jPanelContenido.setLayout(jPanelContenidoLayout);
@@ -101,13 +146,17 @@ public class JFrameAgenda extends javax.swing.JFrame {
                     .addGroup(jPanelContenidoLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonIntervencion))))
-                .addGap(141, 141, 141))
+                            .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonIntervencion)
+                                    .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(22, 22, 22))
         );
 
         jPanelContenidoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonAgenda, jButtonArticulo, jButtonEmpleado, jButtonIntervencion, jButtonPaciente, jButtonSalir1});
@@ -117,12 +166,17 @@ public class JFrameAgenda extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabelTitulo)
-                .addGap(118, 118, 118)
-                .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonIntervencion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonIntervencion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -153,10 +207,38 @@ public class JFrameAgenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAgendaActionPerformed
-
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        rellenarTabla();
+    }//GEN-LAST:event_formWindowOpened
+    
+    private void rellenarTabla() {
+        ArrayList<Cita> citas = Clinica.getAgenda();
+        
+        for (int i = 0; i < citas.size(); i++) {
+            for (int j = 0; j < citas.get(i).datosTabla().length; j++) {
+                jTableAgenda.setValueAt(citas.get(i).datosTabla()[j],i,j);
+            }
+        }
+    }
+    
+    private Object[][] datos() {
+        ArrayList<Cita> citas = Clinica.getAgenda();
+        Object[][] datos = new Object[citas.size()][cabecera().length];
+        
+        for (int i = 0; i < citas.size(); i++)
+        {
+            for (int j = 0; j < cabecera().length; j++){
+                datos[i][j] = null;                
+            }
+        }
+        return datos;
+    }
+    
+    private String[] cabecera() {
+        String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta","Fecha", "Horas", "Realizada"};
+        return cabecera;
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -210,5 +292,8 @@ public class JFrameAgenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelImgFondo;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelContenido;
+    private javax.swing.JPanel jPanelTabla;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableAgenda;
     // End of variables declaration//GEN-END:variables
 }
