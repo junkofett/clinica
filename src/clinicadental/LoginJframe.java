@@ -62,7 +62,6 @@ public class LoginJframe extends javax.swing.JFrame {
         jLabelTitulo.setText("Validación de Usuario");
 
         jLabelError.setForeground(new java.awt.Color(204, 0, 0));
-        jLabelError.setText("Error:");
 
         jButtonSalir.setBackground(new java.awt.Color(153, 204, 255));
         jButtonSalir.setText("SALIR");
