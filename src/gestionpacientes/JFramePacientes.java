@@ -169,6 +169,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonAnadirPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonAnadirPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnadirPaciente.setText("Añadir");
+        jButtonAnadirPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnadirPacienteActionPerformed(evt);
+            }
+        });
 
         jButtonNuevaCitaPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonNuevaCitaPaciente.setForeground(new java.awt.Color(255, 255, 255));
@@ -328,6 +333,12 @@ public class JFramePacientes extends javax.swing.JFrame {
     private void jButtonBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPacienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarPacienteActionPerformed
+
+    private void jButtonAnadirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirPacienteActionPerformed
+        JFrameAltaPacientes altapacientes = new JFrameAltaPacientes();
+        altapacientes.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonAnadirPacienteActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Paciente> pacientes = Clinica.getPacientes();

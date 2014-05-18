@@ -35,9 +35,9 @@ public class Clinica {
     {
         empleados.add(empleado);
     }
-    public static void anadirCliente(Paciente[] cliente)
+    public static void anadirPaciente(Paciente[] paciente)
     {
-        for(Paciente p: cliente){
+        for(Paciente p: paciente){
             pacientes.add(p);
         }
     }

@@ -9,7 +9,7 @@ package gestionpacientes;
 import clinicadental.Persona;
 import gestionagenda.Cita;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  *

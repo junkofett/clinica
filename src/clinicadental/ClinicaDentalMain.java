@@ -42,7 +42,7 @@ public class ClinicaDentalMain {
         Intervencion i6 = new Intervencion(em1, "Reconstruccion",100,200);
         
         
-        Clinica.anadirCliente(p);
+        Clinica.anadirPaciente(p);
         
         Clinica.anadirEmpleado(em1);
         Clinica.anadirEmpleado(em2);
