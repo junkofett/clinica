@@ -43,7 +43,7 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonIntervencion = new javax.swing.JButton();
         jPanelTabla = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableEmpleados = new javax.swing.JTable();
+        jTablePacientes = new javax.swing.JTable();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,10 +97,10 @@ public class JFramePacientes extends javax.swing.JFrame {
 
         jPanelTabla.setOpaque(false);
 
-        jTableEmpleados.setAutoCreateRowSorter(true);
-        jTableEmpleados.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+        jTablePacientes.setAutoCreateRowSorter(true);
+        jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -114,7 +114,7 @@ public class JFramePacientes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTableEmpleados);
+        jScrollPane2.setViewportView(jTablePacientes);
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
@@ -229,7 +229,7 @@ public class JFramePacientes extends javax.swing.JFrame {
         
         for (int i = 0; i < pacientes.size(); i++) {
             for (int j = 0; j < pacientes.get(i).datosTabla().length; j++) {
-                jTableEmpleados.setValueAt(pacientes.get(i).datosTabla()[j],i,j);
+                jTablePacientes.setValueAt(pacientes.get(i).datosTabla()[j],i,j);
             }
         }
     }
@@ -308,6 +308,6 @@ public class JFramePacientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelContenido;
     private javax.swing.JPanel jPanelTabla;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableEmpleados;
+    private javax.swing.JTable jTablePacientes;
     // End of variables declaration//GEN-END:variables
 }
