@@ -24,6 +24,12 @@ public class Paciente extends Persona {
     public Paciente(int dni, String nomb, String ape1, String ape2, int tlf){
         super(dni, nomb, ape1, ape2, tlf);
     }
+    
+    public Object[] datosTabla(){
+        Object[] datos = {getNombre(),getApellido1(),getApellido2(),getDni(), getTelefono()};
+        
+        return datos;
+    }
    
     public void anadirIntervencion(Cita c){
         historial.add(c);

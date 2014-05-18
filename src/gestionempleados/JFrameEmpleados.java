@@ -2,11 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package gestionagenda;
+package gestionempleados;
 
 import clinicadental.*;
-import gestionempleados.Empleado;
-import gestionempleados.JFrameEmpleados;
+import gestionagenda.JFrameAgenda;
 import gestionpacientes.JFramePacientes;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -15,12 +14,12 @@ import java.util.ArrayList;
  *
  * @author Lucky
  */
-public class JFrameAgenda extends javax.swing.JFrame {
+public class JFrameEmpleados extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginJframe
      */
-    public JFrameAgenda() {
+    public JFrameEmpleados() {
         initComponents();
     }
 
@@ -45,7 +44,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonIntervencion = new javax.swing.JButton();
         jPanelTabla = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableAgenda = new javax.swing.JTable();
+        jTableEmpleados = new javax.swing.JTable();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,7 +62,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Gestión de Agenda");
+        jLabelTitulo.setText("Gestión de Empleados");
 
         jLabelError.setForeground(new java.awt.Color(204, 0, 0));
 
@@ -78,11 +77,6 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonEmpleado.setBackground(new java.awt.Color(153, 204, 255));
         jButtonEmpleado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonEmpleado.setText("EMPLEADOS");
-        jButtonEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEmpleadoActionPerformed(evt);
-            }
-        });
 
         jButtonPaciente.setBackground(new java.awt.Color(153, 204, 255));
         jButtonPaciente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -97,6 +91,11 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonAgenda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonAgenda.setText("AGENDA");
         jButtonAgenda.setFocusable(false);
+        jButtonAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgendaActionPerformed(evt);
+            }
+        });
 
         jButtonIntervencion.setBackground(new java.awt.Color(153, 204, 255));
         jButtonIntervencion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -104,13 +103,13 @@ public class JFrameAgenda extends javax.swing.JFrame {
 
         jPanelTabla.setOpaque(false);
 
-        jTableAgenda.setAutoCreateRowSorter(true);
-        jTableAgenda.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+        jTableEmpleados.setAutoCreateRowSorter(true);
+        jTableEmpleados.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -121,7 +120,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTableAgenda);
+        jScrollPane2.setViewportView(jTableEmpleados);
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
@@ -223,11 +222,13 @@ public class JFrameAgenda extends javax.swing.JFrame {
         rellenarTabla();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
-        JFrameEmpleados empleados = new JFrameEmpleados();
-        empleados.setVisible(true);
+    private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
+        
+        JFrameAgenda agenda = new JFrameAgenda();
+        agenda.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonEmpleadoActionPerformed
+        
+    }//GEN-LAST:event_jButtonAgendaActionPerformed
 
     private void jButtonPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacienteActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
@@ -236,20 +237,20 @@ public class JFrameAgenda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPacienteActionPerformed
     
     private void rellenarTabla() {
-        ArrayList<Cita> citas = Clinica.getAgenda();
+        ArrayList<Empleado> empleados = Clinica.getEmpleados();
         
-        for (int i = 0; i < citas.size(); i++) {
-            for (int j = 0; j < citas.get(i).datosTabla().length; j++) {
-                jTableAgenda.setValueAt(citas.get(i).datosTabla()[j],i,j);
+        for (int i = 0; i < empleados.size(); i++) {
+            for (int j = 0; j < empleados.get(i).datosTabla().length; j++) {
+                jTableEmpleados.setValueAt(empleados.get(i).datosTabla()[j],i,j);
             }
         }
     }
     
     private Object[][] datos() {
-        ArrayList<Cita> citas = Clinica.getAgenda();
-        Object[][] datos = new Object[citas.size()][cabecera().length];
+        ArrayList<Empleado> empleados = Clinica.getEmpleados();
+        Object[][] datos = new Object[empleados.size()][cabecera().length];
         
-        for (int i = 0; i < citas.size(); i++)
+        for (int i = 0; i < empleados.size(); i++)
         {
             for (int j = 0; j < cabecera().length; j++){
                 datos[i][j] = null;                
@@ -259,7 +260,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
     }
     
     private String[] cabecera() {
-        String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta", "Fecha", "Realizada"};
+        String[] cabecera = {"Nombre", "DNI", "Especialidad", "Telefono"};
         return cabecera;
     }
     
@@ -285,13 +286,13 @@ public class JFrameAgenda extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -300,8 +301,9 @@ public class JFrameAgenda extends javax.swing.JFrame {
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
-                new JFrameAgenda().setVisible(true);
+                new JFrameEmpleados().setVisible(true);
             }
         });
     }
@@ -318,6 +320,6 @@ public class JFrameAgenda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelContenido;
     private javax.swing.JPanel jPanelTabla;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableAgenda;
+    private javax.swing.JTable jTableEmpleados;
     // End of variables declaration//GEN-END:variables
 }

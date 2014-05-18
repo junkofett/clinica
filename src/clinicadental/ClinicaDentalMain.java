@@ -138,6 +138,7 @@ public class ClinicaDentalMain {
         
           
         //AgendaUI.main(args);
-        JFrameAgenda.main(args);
+        //JFrameAgenda.main(args);
+        JFrameEmpleados.main(args);
     }
 }

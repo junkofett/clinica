@@ -27,6 +27,12 @@ public class Empleado extends Persona{
         this.contrasena = contrasena;
     }
 
+    public Object[] datosTabla(){
+        Object[] datos = {getNombre()+", "+getApellido1(),getDni(),rol,getTelefono()};
+        
+        return datos;
+    }
+    
     public String getContrasena() {
         return contrasena;
     }

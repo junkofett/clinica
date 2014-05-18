@@ -23,7 +23,7 @@ public class Clinica {
     
     private static ArrayList<Cita> agenda = new ArrayList<>();
     private static ArrayList<Empleado> empleados = new ArrayList<>();
-    private static ArrayList<Paciente> clientes = new ArrayList<>();
+    private static ArrayList<Paciente> pacientes = new ArrayList<>();
     private static ArrayList<Articulo> inventario = new ArrayList<>();
     private static ArrayList<Intervencion> intervenciones = new ArrayList<>();
     
@@ -38,7 +38,7 @@ public class Clinica {
     public static void anadirCliente(Paciente[] cliente)
     {
         for(Paciente p: cliente){
-            clientes.add(p);
+            pacientes.add(p);
         }
     }
     public static void anadirArticulo(Articulo articulo)
@@ -58,8 +58,8 @@ public class Clinica {
         return empleados;
     }
 
-    public static ArrayList<Paciente> getClientes() {
-        return clientes;
+    public static ArrayList<Paciente> getPacientes() {
+        return pacientes;
     }
 
     public static ArrayList<Articulo> getInventario() {
@@ -77,7 +77,7 @@ public class Clinica {
     }
     
     public static void mostrarPa(){
-      for(Paciente p: clientes){
+      for(Paciente p: pacientes){
           System.out.println(p);
       }
     }
