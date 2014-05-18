@@ -2,11 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package gestionagenda;
+package gestionarticulos;
 
 import clinicadental.*;
-import gestionarticulos.JFrameArticulos;
-import gestionempleados.Empleado;
+import gestionagenda.JFrameAgenda;
 import gestionempleados.JFrameEmpleados;
 import gestionintervencion.JFrameIntervencion;
 import gestionpacientes.JFramePacientes;
@@ -17,12 +16,12 @@ import java.util.ArrayList;
  *
  * @author Lucky
  */
-public class JFrameAgenda extends javax.swing.JFrame {
+public class JFrameArticulos extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginJframe
      */
-    public JFrameAgenda() {
+    public JFrameArticulos() {
         initComponents();
     }
 
@@ -46,8 +45,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonAgenda = new javax.swing.JButton();
         jButtonIntervencion = new javax.swing.JButton();
         jPanelTabla = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableAgenda = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,18 +63,13 @@ public class JFrameAgenda extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Gestión de Agenda");
+        jLabelTitulo.setText("Gestión de Articulos");
 
         jLabelError.setForeground(new java.awt.Color(204, 0, 0));
 
-        jButtonArticulo.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonArticulo.setBackground(new java.awt.Color(255, 204, 102));
         jButtonArticulo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonArticulo.setText("ARTÍCULOS");
-        jButtonArticulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonArticuloActionPerformed(evt);
-            }
-        });
 
         jButtonSalir1.setBackground(new java.awt.Color(153, 204, 255));
         jButtonSalir1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -100,10 +93,15 @@ public class JFrameAgenda extends javax.swing.JFrame {
             }
         });
 
-        jButtonAgenda.setBackground(new java.awt.Color(255, 204, 102));
+        jButtonAgenda.setBackground(new java.awt.Color(153, 204, 255));
         jButtonAgenda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonAgenda.setText("AGENDA");
         jButtonAgenda.setFocusable(false);
+        jButtonAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgendaActionPerformed(evt);
+            }
+        });
 
         jButtonIntervencion.setBackground(new java.awt.Color(153, 204, 255));
         jButtonIntervencion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -116,44 +114,24 @@ public class JFrameAgenda extends javax.swing.JFrame {
 
         jPanelTabla.setOpaque(false);
 
-        jTableAgenda.setAutoCreateRowSorter(true);
-        jTableAgenda.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTableAgenda);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setText("EN CONSTRUCCIÓN");
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
         jPanelTablaLayout.setHorizontalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanelTablaLayout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jLabel1)
+                .addContainerGap(398, Short.MAX_VALUE))
         );
         jPanelTablaLayout.setVerticalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 252, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+            .addGroup(jPanelTablaLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(jLabel1)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
@@ -178,7 +156,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
                                     .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonIntervencion)
                                     .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(22, 22, 22))
         );
@@ -204,7 +182,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addComponent(jButtonEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addGap(46, 46, 46)
                 .addComponent(jButtonSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
@@ -232,14 +210,16 @@ public class JFrameAgenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        rellenarTabla();
+      
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
-        JFrameEmpleados empleados = new JFrameEmpleados();
-        empleados.setVisible(true);
+    private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
+        
+        JFrameAgenda agenda = new JFrameAgenda();
+        agenda.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonEmpleadoActionPerformed
+        
+    }//GEN-LAST:event_jButtonAgendaActionPerformed
 
     private void jButtonPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacienteActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
@@ -253,41 +233,12 @@ public class JFrameAgenda extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonIntervencionActionPerformed
 
-    private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
-        JFrameArticulos articulos = new JFrameArticulos();
-        articulos.setVisible(true);
+    private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
+        JFrameEmpleados empleados = new JFrameEmpleados();
+        empleados.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonArticuloActionPerformed
-    
-    private void rellenarTabla() {
-        ArrayList<Cita> citas = Clinica.getAgenda();
-        
-        for (int i = 0; i < citas.size(); i++) {
-            for (int j = 0; j < citas.get(i).datosTabla().length; j++) {
-                jTableAgenda.setValueAt(citas.get(i).datosTabla()[j],i,j);
-            }
-        }
-    }
-    
-    private Object[][] datos() {
-        ArrayList<Cita> citas = Clinica.getAgenda();
-        Object[][] datos = new Object[citas.size()][cabecera().length];
-        
-        for (int i = 0; i < citas.size(); i++)
-        {
-            for (int j = 0; j < cabecera().length; j++){
-                datos[i][j] = null;                
-            }
-        }
-        return datos;
-    }
-    
-    private String[] cabecera() {
-        String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta", "Fecha", "Realizada"};
-        return cabecera;
-    }
-    
-    
+    }//GEN-LAST:event_jButtonEmpleadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -309,13 +260,13 @@ public class JFrameAgenda extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameArticulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameArticulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameArticulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameArticulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -324,8 +275,9 @@ public class JFrameAgenda extends javax.swing.JFrame {
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
-                new JFrameAgenda().setVisible(true);
+                new JFrameArticulos().setVisible(true);
             }
         });
     }
@@ -336,12 +288,11 @@ public class JFrameAgenda extends javax.swing.JFrame {
     private javax.swing.JButton jButtonIntervencion;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelError;
     private javax.swing.JLabel jLabelImgFondo;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelContenido;
     private javax.swing.JPanel jPanelTabla;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableAgenda;
     // End of variables declaration//GEN-END:variables
 }

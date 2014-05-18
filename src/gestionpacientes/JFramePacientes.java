@@ -6,6 +6,9 @@ package gestionpacientes;
 
 import clinicadental.*;
 import gestionagenda.JFrameAgenda;
+import gestionarticulos.JFrameArticulos;
+import gestionempleados.JFrameEmpleados;
+import gestionintervencion.JFrameIntervencion;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
@@ -61,13 +64,18 @@ public class JFramePacientes extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Gestión de Empleados");
+        jLabelTitulo.setText("Gestión de Pacientes");
 
         jLabelError.setForeground(new java.awt.Color(204, 0, 0));
 
         jButtonArticulo.setBackground(new java.awt.Color(153, 204, 255));
         jButtonArticulo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonArticulo.setText("ARTÍCULOS");
+        jButtonArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonArticuloActionPerformed(evt);
+            }
+        });
 
         jButtonSalir1.setBackground(new java.awt.Color(153, 204, 255));
         jButtonSalir1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -76,12 +84,17 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonEmpleado.setBackground(new java.awt.Color(153, 204, 255));
         jButtonEmpleado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonEmpleado.setText("EMPLEADOS");
+        jButtonEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmpleadoActionPerformed(evt);
+            }
+        });
 
-        jButtonPaciente.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonPaciente.setBackground(new java.awt.Color(255, 204, 102));
         jButtonPaciente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonPaciente.setText("PACIENTES");
 
-        jButtonAgenda.setBackground(new java.awt.Color(255, 204, 102));
+        jButtonAgenda.setBackground(new java.awt.Color(153, 204, 255));
         jButtonAgenda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonAgenda.setText("AGENDA");
         jButtonAgenda.setFocusable(false);
@@ -94,6 +107,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonIntervencion.setBackground(new java.awt.Color(153, 204, 255));
         jButtonIntervencion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonIntervencion.setText("INTERVENCIONES");
+        jButtonIntervencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIntervencionActionPerformed(evt);
+            }
+        });
 
         jPanelTabla.setOpaque(false);
 
@@ -223,6 +241,24 @@ public class JFramePacientes extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jButtonAgendaActionPerformed
+
+    private void jButtonIntervencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIntervencionActionPerformed
+        JFrameIntervencion intervencion = new JFrameIntervencion();
+        intervencion.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonIntervencionActionPerformed
+
+    private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
+       JFrameEmpleados empleados = new JFrameEmpleados();
+       empleados.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButtonEmpleadoActionPerformed
+
+    private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
+        JFrameArticulos articulos = new JFrameArticulos();
+        articulos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonArticuloActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Paciente> pacientes = Clinica.getPacientes();

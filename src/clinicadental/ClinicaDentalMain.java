@@ -34,9 +34,13 @@ public class ClinicaDentalMain {
         Paciente[] p = {new Paciente(77, "Loreto", "Prieto", "Memoles", 98698),
                         new Paciente(2534, "Manuel", "Revilla", "Tosco", 32752),
                         new Paciente(0130, "Wiliamsito", "Vargas", "Motoche", 572357)};      
-        Intervencion i1 = new Intervencion(emples, "Ortodoncia", 30,120);
-        Intervencion i2 = new Intervencion(emples, "Limpieza", 80,90);
-        Intervencion i3 = new Intervencion(emples, "Empaste", 50,200);
+        Intervencion i1 = new Intervencion(em1, "Ortodoncia", 30,120);
+        Intervencion i2 = new Intervencion(em1, "Limpieza", 80,90);
+        Intervencion i3 = new Intervencion(em1, "Empaste", 50,200);
+        Intervencion i4 = new Intervencion(em1, "Revisión",0,30);
+        Intervencion i5 = new Intervencion(em1, "Extracción",45,15);
+        Intervencion i6 = new Intervencion(em1, "Reconstruccion",100,200);
+        
         
         Clinica.anadirCliente(p);
         
@@ -47,6 +51,9 @@ public class ClinicaDentalMain {
         Clinica.anadirIntervencion(i1);
         Clinica.anadirIntervencion(i2);
         Clinica.anadirIntervencion(i3);
+        Clinica.anadirIntervencion(i4);
+        Clinica.anadirIntervencion(i5);
+        Clinica.anadirIntervencion(i6);
         
         Clinica.anadirCita(4, p[0], i1, true, new Date(114, 5 - 1, 3, 16, 30));
         Clinica.anadirCita(2, p[1], i2, true, new Date(114, 3 - 1, 3, 19, 00));

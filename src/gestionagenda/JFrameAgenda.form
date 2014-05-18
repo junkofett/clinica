@@ -137,6 +137,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ART&#xcd;CULOS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonArticuloActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSalir1">
           <Properties>
@@ -199,6 +202,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="INTERVENCIONES"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIntervencionActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanelTabla">
           <Properties>

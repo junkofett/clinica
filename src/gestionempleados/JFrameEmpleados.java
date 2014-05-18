@@ -6,6 +6,8 @@ package gestionempleados;
 
 import clinicadental.*;
 import gestionagenda.JFrameAgenda;
+import gestionarticulos.JFrameArticulos;
+import gestionintervencion.JFrameIntervencion;
 import gestionpacientes.JFramePacientes;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -69,12 +71,17 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         jButtonArticulo.setBackground(new java.awt.Color(153, 204, 255));
         jButtonArticulo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonArticulo.setText("ARTÍCULOS");
+        jButtonArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonArticuloActionPerformed(evt);
+            }
+        });
 
         jButtonSalir1.setBackground(new java.awt.Color(153, 204, 255));
         jButtonSalir1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonSalir1.setText("SALIR");
 
-        jButtonEmpleado.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonEmpleado.setBackground(new java.awt.Color(255, 204, 102));
         jButtonEmpleado.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonEmpleado.setText("EMPLEADOS");
 
@@ -87,7 +94,7 @@ public class JFrameEmpleados extends javax.swing.JFrame {
             }
         });
 
-        jButtonAgenda.setBackground(new java.awt.Color(255, 204, 102));
+        jButtonAgenda.setBackground(new java.awt.Color(153, 204, 255));
         jButtonAgenda.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonAgenda.setText("AGENDA");
         jButtonAgenda.setFocusable(false);
@@ -100,6 +107,11 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         jButtonIntervencion.setBackground(new java.awt.Color(153, 204, 255));
         jButtonIntervencion.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonIntervencion.setText("INTERVENCIONES");
+        jButtonIntervencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIntervencionActionPerformed(evt);
+            }
+        });
 
         jPanelTabla.setOpaque(false);
 
@@ -235,6 +247,18 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonPacienteActionPerformed
+
+    private void jButtonIntervencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIntervencionActionPerformed
+       JFrameIntervencion intervencion = new JFrameIntervencion();
+        intervencion.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonIntervencionActionPerformed
+
+    private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
+        JFrameArticulos articulos = new JFrameArticulos();
+        articulos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonArticuloActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Empleado> empleados = Clinica.getEmpleados();

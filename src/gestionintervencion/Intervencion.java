@@ -17,16 +17,22 @@ import java.util.ArrayList;
 public class Intervencion {
     
     private String nombre;
-    private ArrayList<Empleado> personal;
+    private Empleado personal;
     private int precio;
     private ArrayList<Articulo> material;
     private int duracion;
 
-    public Intervencion(ArrayList<Empleado> personal, String nombre, int precio, int duracion) {
+    public Intervencion(Empleado personal, String nombre, int precio, int duracion) {
         this.nombre = nombre;
         this.personal = personal;
         this.precio = precio;
         this.duracion = duracion;
+    }
+    
+    public Object[] datosTabla(){
+        Object[] datos = {nombre, duracion, precio, personal.getNombre()};
+        
+        return datos;
     }
     
     public String getNombre(){
