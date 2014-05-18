@@ -46,12 +46,12 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         jPanelTabla = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableIntervenciones = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButtonModInterv = new javax.swing.JButton();
+        jButtonBajaInterv = new javax.swing.JButton();
+        jButtonEliminarInterv = new javax.swing.JButton();
+        jButtonBuscarInterv = new javax.swing.JButton();
+        jButtonFiltrarInterv = new javax.swing.JButton();
+        jButtonAnadirInterv = new javax.swing.JButton();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,37 +134,37 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableIntervenciones);
 
-        jButton3.setBackground(new java.awt.Color(0, 128, 192));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Modificar");
+        jButtonModInterv.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonModInterv.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonModInterv.setText("Modificar");
 
-        jButton4.setBackground(new java.awt.Color(0, 128, 192));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Baja");
+        jButtonBajaInterv.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBajaInterv.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBajaInterv.setText("Baja");
 
-        jButton5.setBackground(new java.awt.Color(0, 128, 192));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Eliminar");
+        jButtonEliminarInterv.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonEliminarInterv.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminarInterv.setText("Eliminar");
 
-        jButton1.setBackground(new java.awt.Color(0, 128, 192));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscarInterv.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBuscarInterv.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBuscarInterv.setText("Buscar");
+        jButtonBuscarInterv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBuscarIntervActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 128, 192));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Filtrar");
+        jButtonFiltrarInterv.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonFiltrarInterv.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonFiltrarInterv.setText("Filtrar");
 
-        jButton6.setBackground(new java.awt.Color(0, 128, 192));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Añadir");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAnadirInterv.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonAnadirInterv.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAnadirInterv.setText("Añadir");
+        jButtonAnadirInterv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonAnadirIntervActionPerformed(evt);
             }
         });
 
@@ -177,17 +177,17 @@ public class JFrameIntervencion extends javax.swing.JFrame {
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(jButtonAnadirInterv)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(jButtonModInterv)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(jButtonBajaInterv)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5))
+                        .addComponent(jButtonEliminarInterv))
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButtonBuscarInterv)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonFiltrarInterv)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -196,16 +196,16 @@ public class JFrameIntervencion extends javax.swing.JFrame {
             .addGroup(jPanelTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonBuscarInterv)
+                    .addComponent(jButtonFiltrarInterv))
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(jButtonModInterv)
+                    .addComponent(jButtonBajaInterv)
+                    .addComponent(jButtonEliminarInterv)
+                    .addComponent(jButtonAnadirInterv))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -308,13 +308,13 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonArticuloActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonBuscarIntervActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarIntervActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarIntervActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonAnadirIntervActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirIntervActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonAnadirIntervActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Intervencion> intervenciones = Clinica.getIntervenciones();
@@ -388,16 +388,16 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonAgenda;
+    private javax.swing.JButton jButtonAnadirInterv;
     private javax.swing.JButton jButtonArticulo;
+    private javax.swing.JButton jButtonBajaInterv;
+    private javax.swing.JButton jButtonBuscarInterv;
+    private javax.swing.JButton jButtonEliminarInterv;
     private javax.swing.JButton jButtonEmpleado;
+    private javax.swing.JButton jButtonFiltrarInterv;
     private javax.swing.JButton jButtonIntervencion;
+    private javax.swing.JButton jButtonModInterv;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;
     private javax.swing.JLabel jLabelError;

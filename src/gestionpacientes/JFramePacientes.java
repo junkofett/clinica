@@ -47,13 +47,13 @@ public class JFramePacientes extends javax.swing.JFrame {
         jPanelTabla = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablePacientes = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButtonFiltrarPaciente = new javax.swing.JButton();
+        jButtonBuscarPaciente = new javax.swing.JButton();
+        jButtonModPaciente = new javax.swing.JButton();
+        jButtonBajaPaciente = new javax.swing.JButton();
+        jButtonEliminarPaciente = new javax.swing.JButton();
+        jButtonAnadirPaciente = new javax.swing.JButton();
+        jButtonNuevaCitaPaciente = new javax.swing.JButton();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,38 +141,38 @@ public class JFramePacientes extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTablePacientes);
 
-        jButton2.setBackground(new java.awt.Color(0, 128, 192));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Filtrar");
+        jButtonFiltrarPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonFiltrarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonFiltrarPaciente.setText("Filtrar");
 
-        jButton1.setBackground(new java.awt.Color(0, 128, 192));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscarPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBuscarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBuscarPaciente.setText("Buscar");
+        jButtonBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBuscarPacienteActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 128, 192));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Modificar");
+        jButtonModPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonModPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonModPaciente.setText("Modificar");
 
-        jButton4.setBackground(new java.awt.Color(0, 128, 192));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Baja");
+        jButtonBajaPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBajaPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBajaPaciente.setText("Baja");
 
-        jButton5.setBackground(new java.awt.Color(0, 128, 192));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Eliminar");
+        jButtonEliminarPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonEliminarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminarPaciente.setText("Eliminar");
 
-        jButton6.setBackground(new java.awt.Color(0, 128, 192));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Añadir");
+        jButtonAnadirPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonAnadirPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAnadirPaciente.setText("Añadir");
 
-        jButton7.setBackground(new java.awt.Color(0, 128, 192));
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Nueva Cita");
+        jButtonNuevaCitaPaciente.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonNuevaCitaPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonNuevaCitaPaciente.setText("Nueva Cita");
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
@@ -183,20 +183,20 @@ public class JFramePacientes extends javax.swing.JFrame {
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(jButtonAnadirPaciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(jButtonModPaciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(jButtonBajaPaciente)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5))
+                        .addComponent(jButtonEliminarPaciente))
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
                         .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelTablaLayout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(jButtonBuscarPaciente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addComponent(jButton7))
+                                .addComponent(jButtonFiltrarPaciente))
+                            .addComponent(jButtonNuevaCitaPaciente))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -205,18 +205,18 @@ public class JFramePacientes extends javax.swing.JFrame {
             .addGroup(jPanelTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonBuscarPaciente)
+                    .addComponent(jButtonFiltrarPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(jButtonModPaciente)
+                    .addComponent(jButtonBajaPaciente)
+                    .addComponent(jButtonEliminarPaciente)
+                    .addComponent(jButtonAnadirPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7)
+                .addComponent(jButtonNuevaCitaPaciente)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -325,9 +325,9 @@ public class JFramePacientes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonArticuloActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarPacienteActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
@@ -401,17 +401,17 @@ public class JFramePacientes extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonAgenda;
+    private javax.swing.JButton jButtonAnadirPaciente;
     private javax.swing.JButton jButtonArticulo;
+    private javax.swing.JButton jButtonBajaPaciente;
+    private javax.swing.JButton jButtonBuscarPaciente;
+    private javax.swing.JButton jButtonEliminarPaciente;
     private javax.swing.JButton jButtonEmpleado;
+    private javax.swing.JButton jButtonFiltrarPaciente;
     private javax.swing.JButton jButtonIntervencion;
+    private javax.swing.JButton jButtonModPaciente;
+    private javax.swing.JButton jButtonNuevaCitaPaciente;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;
     private javax.swing.JLabel jLabelError;

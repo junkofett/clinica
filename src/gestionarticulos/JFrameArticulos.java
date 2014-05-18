@@ -122,16 +122,16 @@ public class JFrameArticulos extends javax.swing.JFrame {
         jPanelTablaLayout.setHorizontalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTablaLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(136, 136, 136)
                 .addComponent(jLabel1)
-                .addContainerGap(398, Short.MAX_VALUE))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
         jPanelTablaLayout.setVerticalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTablaLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
+                .addContainerGap(224, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);

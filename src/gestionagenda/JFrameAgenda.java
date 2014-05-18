@@ -48,11 +48,11 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jPanelTabla = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAgenda = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButtonBuscarCita = new javax.swing.JButton();
+        jButtonFiltrarCita = new javax.swing.JButton();
+        jButtonModificarCita = new javax.swing.JButton();
+        jButtonBajaCita = new javax.swing.JButton();
+        jButtonEliminarCita = new javax.swing.JButton();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,30 +140,30 @@ public class JFrameAgenda extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableAgenda);
 
-        jButton1.setBackground(new java.awt.Color(0, 128, 192));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscarCita.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBuscarCita.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBuscarCita.setText("Buscar");
+        jButtonBuscarCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBuscarCitaActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 128, 192));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Filtrar");
+        jButtonFiltrarCita.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonFiltrarCita.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonFiltrarCita.setText("Filtrar");
 
-        jButton3.setBackground(new java.awt.Color(0, 128, 192));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Modificar");
+        jButtonModificarCita.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonModificarCita.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonModificarCita.setText("Modificar");
 
-        jButton4.setBackground(new java.awt.Color(0, 128, 192));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Baja");
+        jButtonBajaCita.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBajaCita.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBajaCita.setText("Baja");
 
-        jButton5.setBackground(new java.awt.Color(0, 128, 192));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Eliminar");
+        jButtonEliminarCita.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonEliminarCita.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminarCita.setText("Eliminar");
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
@@ -174,16 +174,16 @@ public class JFrameAgenda extends javax.swing.JFrame {
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButtonBuscarCita)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonFiltrarCita)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(jButtonModificarCita)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(jButtonBajaCita)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)))
+                        .addComponent(jButtonEliminarCita)))
                 .addContainerGap())
         );
         jPanelTablaLayout.setVerticalGroup(
@@ -191,15 +191,15 @@ public class JFrameAgenda extends javax.swing.JFrame {
             .addGroup(jPanelTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonBuscarCita)
+                    .addComponent(jButtonFiltrarCita))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButtonModificarCita)
+                    .addComponent(jButtonBajaCita)
+                    .addComponent(jButtonEliminarCita))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -307,9 +307,9 @@ public class JFrameAgenda extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonArticuloActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonBuscarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCitaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarCitaActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Cita> citas = Clinica.getAgenda();
@@ -382,15 +382,15 @@ public class JFrameAgenda extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAgenda;
     private javax.swing.JButton jButtonArticulo;
+    private javax.swing.JButton jButtonBajaCita;
+    private javax.swing.JButton jButtonBuscarCita;
+    private javax.swing.JButton jButtonEliminarCita;
     private javax.swing.JButton jButtonEmpleado;
+    private javax.swing.JButton jButtonFiltrarCita;
     private javax.swing.JButton jButtonIntervencion;
+    private javax.swing.JButton jButtonModificarCita;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;
     private javax.swing.JLabel jLabelError;

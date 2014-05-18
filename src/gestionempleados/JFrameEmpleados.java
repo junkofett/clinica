@@ -47,12 +47,12 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         jPanelTabla = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmpleados = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButtonBuscarEmple = new javax.swing.JButton();
+        jButtonFiltrarEmple = new javax.swing.JButton();
+        jButtonModEmple = new javax.swing.JButton();
+        jButtonBajaEmple = new javax.swing.JButton();
+        jButtonEliminarEmple = new javax.swing.JButton();
+        jButtonAnadirEmple = new javax.swing.JButton();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,37 +140,37 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableEmpleados);
 
-        jButton1.setBackground(new java.awt.Color(0, 128, 192));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscarEmple.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBuscarEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBuscarEmple.setText("Buscar");
+        jButtonBuscarEmple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBuscarEmpleActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 128, 192));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Filtrar");
+        jButtonFiltrarEmple.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonFiltrarEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonFiltrarEmple.setText("Filtrar");
 
-        jButton3.setBackground(new java.awt.Color(0, 128, 192));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Modificar");
+        jButtonModEmple.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonModEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonModEmple.setText("Modificar");
 
-        jButton4.setBackground(new java.awt.Color(0, 128, 192));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Baja");
+        jButtonBajaEmple.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonBajaEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBajaEmple.setText("Baja");
 
-        jButton5.setBackground(new java.awt.Color(0, 128, 192));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Eliminar");
+        jButtonEliminarEmple.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonEliminarEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEliminarEmple.setText("Eliminar");
 
-        jButton6.setBackground(new java.awt.Color(0, 128, 192));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Añadir");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAnadirEmple.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonAnadirEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAnadirEmple.setText("Añadir");
+        jButtonAnadirEmple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonAnadirEmpleActionPerformed(evt);
             }
         });
 
@@ -183,17 +183,17 @@ public class JFrameEmpleados extends javax.swing.JFrame {
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(jButtonAnadirEmple)
                         .addGap(8, 8, 8)
-                        .addComponent(jButton3)
+                        .addComponent(jButtonModEmple)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(jButtonBajaEmple)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5))
+                        .addComponent(jButtonEliminarEmple))
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButtonBuscarEmple)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonFiltrarEmple)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -202,16 +202,16 @@ public class JFrameEmpleados extends javax.swing.JFrame {
             .addGroup(jPanelTablaLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonBuscarEmple)
+                    .addComponent(jButtonFiltrarEmple))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(jButtonModEmple)
+                    .addComponent(jButtonBajaEmple)
+                    .addComponent(jButtonEliminarEmple)
+                    .addComponent(jButtonAnadirEmple))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -320,13 +320,13 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonArticuloActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonBuscarEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarEmpleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarEmpleActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonAnadirEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirEmpleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonAnadirEmpleActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Empleado> empleados = Clinica.getEmpleados();
@@ -400,16 +400,16 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonAgenda;
+    private javax.swing.JButton jButtonAnadirEmple;
     private javax.swing.JButton jButtonArticulo;
+    private javax.swing.JButton jButtonBajaEmple;
+    private javax.swing.JButton jButtonBuscarEmple;
+    private javax.swing.JButton jButtonEliminarEmple;
     private javax.swing.JButton jButtonEmpleado;
+    private javax.swing.JButton jButtonFiltrarEmple;
     private javax.swing.JButton jButtonIntervencion;
+    private javax.swing.JButton jButtonModEmple;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;
     private javax.swing.JLabel jLabelError;
