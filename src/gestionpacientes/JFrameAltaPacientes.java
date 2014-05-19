@@ -5,6 +5,7 @@
 package gestionpacientes;
 
 import clinicadental.*;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
@@ -49,9 +50,9 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
         jTextFieldApe1 = new javax.swing.JTextField();
         jTextFieldApe2 = new javax.swing.JTextField();
         jTextFieldDni = new javax.swing.JTextField();
-        jTextFieldFechaNac = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabelDatosPaciente = new javax.swing.JLabel();
         jButtonCancelarAlta = new javax.swing.JButton();
         jButtonGuardarPaciente = new javax.swing.JButton();
@@ -115,12 +116,20 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
         jTextFieldApe2.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
 
         jTextFieldDni.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-
-        jTextFieldFechaNac.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
+        jTextFieldDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldDniFocusLost(evt);
+            }
+        });
 
         jTextFieldEmail.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
 
         jTextFieldTelefono.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
+        jTextFieldTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldTelefonoFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAltaPacienteFormLayout = new javax.swing.GroupLayout(jPanelAltaPacienteForm);
         jPanelAltaPacienteForm.setLayout(jPanelAltaPacienteFormLayout);
@@ -146,7 +155,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
                             .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
                                 .addComponent(jLabelFechaNac)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
                                 .addComponent(jLabelDni)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,9 +202,9 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
                             .addComponent(jLabelDni)
                             .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelFechaNac)
-                            .addComponent(jTextFieldFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -289,7 +298,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        jButtonGuardarPaciente.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonCancelarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarAltaActionPerformed
@@ -304,6 +313,41 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonGuardarPacienteActionPerformed
+
+    private void jTextFieldDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDniFocusLost
+        if (esNumero(jTextFieldDni.getText())){
+            jTextFieldDni.setBackground(Color.green);
+            activaGuardar();
+        }else{
+            jTextFieldDni.setBackground(Color.red);
+            jButtonGuardarPaciente.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTextFieldDniFocusLost
+
+    private void jTextFieldTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoFocusLost
+        if (esNumero(jTextFieldTelefono.getText())){
+            jTextFieldTelefono.setBackground(Color.green);
+            activaGuardar();
+            }else{
+            jTextFieldTelefono.setBackground(Color.red);
+            jButtonGuardarPaciente.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTextFieldTelefonoFocusLost
+    
+    private void activaGuardar(){
+        if(!jTextFieldDni.getText().equals("") || !jTextFieldTelefono.getText().equals(""))
+            if(esNumero(jTextFieldTelefono.getText()) && esNumero(jTextFieldTelefono.getText()))
+                jButtonGuardarPaciente.setEnabled(true);
+    }
+    
+    private boolean esNumero(String s){
+        try{
+            int dni = Integer.parseInt(s);
+            return true;
+        }catch(NumberFormatException e){
+            return false;        
+        }
+    }
     
     private void anadirPaciente(){
         Paciente[] p = {new Paciente(Integer.parseInt(jTextFieldDni.getText()),
@@ -361,6 +405,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarAlta;
     private javax.swing.JButton jButtonGuardarPaciente;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabelAlergias;
     private javax.swing.JLabel jLabelApe1;
     private javax.swing.JLabel jLabelApe2;
@@ -381,7 +426,6 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldApe2;
     private javax.swing.JTextField jTextFieldDni;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldFechaNac;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
