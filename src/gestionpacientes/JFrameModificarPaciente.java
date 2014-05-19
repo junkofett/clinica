@@ -21,6 +21,7 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
      */
     public JFrameModificarPaciente(Paciente pacienteMod) {
         initComponents();
+        this.modPaciente = pacienteMod;
         mostrarCampos(pacienteMod);
     }
 
@@ -405,14 +406,12 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
     private void anadirPaciente(){
         Date fechaNac = jDateChooserFechaNac.getDate();
         
-        Paciente[] p = {new Paciente(Integer.parseInt(jTextFieldDni.getText()),
-                                    jTextFieldNombre.getText(),
-                                    jTextFieldApe1.getText(),
-                                    jTextFieldApe2.getText(),
-                                    Integer.parseInt(jTextFieldTelefono.getText()),
-                                    fechaNac)};
-        
-        Clinica.anadirPaciente(p);
+        modPaciente.setNombre(jTextFieldNombre.getText());
+        modPaciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
+        modPaciente.setApellido1(jTextFieldApe1.getText());
+        modPaciente.setApellido2(jTextFieldApe2.getText());
+        modPaciente.setTelefono(Integer.parseInt(jTextFieldTelefono.getText()));
+        modPaciente.setFechaNac(fechaNac);
     }
     
     /**
@@ -457,6 +456,8 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
             }
         });
     }
+    
+    private Paciente modPaciente;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarAlta;
     private javax.swing.JButton jButtonGuardarPaciente;
