@@ -8,6 +8,7 @@ package gestionpacientes;
 
 import clinicadental.Persona;
 import gestionagenda.Cita;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,12 +22,17 @@ public class Paciente extends Persona {
     private ArrayList<Cita> historial;
     
 
-    public Paciente(int dni, String nomb, String ape1, String ape2, int tlf){
-        super(dni, nomb, ape1, ape2, tlf);
+    public Paciente(int dni, String nomb, String ape1, String ape2, int tlf, Date fechaNac){
+        super(dni, nomb, ape1, ape2, tlf, fechaNac);
     }
     
     public Object[] datosTabla(){
-        Object[] datos = {getNombre(),getApellido1(),getApellido2(),getDni(), getTelefono()};
+        Date d = getFechaNac();
+        String st = d.toString();
+        SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
+        st = sd.format(d);
+        
+        Object[] datos = {getNombre(),getApellido1(),getApellido2(), st, getDni(), getTelefono()};
         
         return datos;
     }

@@ -6,7 +6,7 @@
 
 package clinicadental;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -18,11 +18,11 @@ public abstract class  Persona {
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private Calendar fechaNac;
+    private Date fechaNac;
     private int telefono;
     private boolean alta;
 
-    public Persona(int dni, String nombre, String apellido1, String apellido2, int telefono) {
+    public Persona(int dni, String nombre, String apellido1, String apellido2, int telefono, Date fechaNac) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -60,11 +60,11 @@ public abstract class  Persona {
         this.apellido2 = apellido2;
     }
 
-    public Calendar getFechaNac() {
+    public Date getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Calendar fechaNac) {
+    public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
 

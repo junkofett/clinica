@@ -10,7 +10,10 @@ import gestionarticulos.JFrameArticulos;
 import gestionempleados.JFrameEmpleados;
 import gestionintervencion.JFrameIntervencion;
 import java.awt.Dimension;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -125,10 +128,10 @@ public class JFramePacientes extends javax.swing.JFrame {
         jTablePacientes.setAutoCreateRowSorter(true);
         jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -364,7 +367,7 @@ public class JFramePacientes extends javax.swing.JFrame {
     }
     
     private String[] cabecera() {
-        String[] cabecera = {"Nombre", "Apellido 1", "Apellido 2", "DNI", "Telefono"};
+        String[] cabecera = {"Nombre", "Apellido 1", "Apellido 2", "Fecha de Nacimiento", "DNI", "Telefono"};
         return cabecera;
     }
     

@@ -8,6 +8,7 @@ package gestionempleados;
 
 import clinicadental.Persona;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -19,8 +20,8 @@ public class Empleado extends Persona{
     private String usuario;
     private String contrasena;
 
-    public Empleado(int dni, String nombre, String apellido1, String apellido2, int telefono, Roles rol, String usuario, String contrasena){
-        super(dni, nombre, apellido1, apellido2, telefono);
+    public Empleado(int dni, String nombre, String apellido1, String apellido2, int telefono, Date fechaNac, Roles rol, String usuario, String contrasena){
+        super(dni, nombre, apellido1, apellido2, telefono, fechaNac);
     
         this.rol = rol;
         this.usuario = usuario;

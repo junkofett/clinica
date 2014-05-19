@@ -13,7 +13,6 @@ import gestionagenda.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -28,12 +27,12 @@ public class ClinicaDentalMain {
      */
     public static void main(String[] args){
         ArrayList<Empleado> emples = new ArrayList<>();
-        Empleado em1 = new Empleado(4,"Antuan", "El", "Trenes", 9, Roles.ODONTOLOGO, "odon", "odon");
-        Empleado em2 = new Empleado(8,"Dolor", "A.", "Nal", 55, Roles.PROPIETARIO, "proper", "proper");
-        Empleado em3 = new Empleado(468,"Tete", "Colorado", "Nal", 345, Roles.RECEPCIONISTA, "tete", "tete");        
-        Paciente[] p = {new Paciente(77, "Loreto", "Prieto", "Memoles", 98698),
-                        new Paciente(2534, "Manuel", "Revilla", "Tosco", 32752),
-                        new Paciente(0130, "Wiliamsito", "Vargas", "Motoche", 572357)};      
+        Empleado em1 = new Empleado(4,"Antuan", "El", "Trenes", 955893215,new Date(82,4,5), Roles.ODONTOLOGO, "odon", "odon");
+        Empleado em2 = new Empleado(8,"Dolor", "A.", "Nal", 555984565, new Date(66,2,2),Roles.PROPIETARIO, "proper", "proper");
+        Empleado em3 = new Empleado(468,"Tete", "Colorado", "Nal", 34587535, new Date(77,5,3), Roles.RECEPCIONISTA, "tete", "tete");        
+        Paciente[] p = {new Paciente(77, "Loreto", "Prieto", "Memoles", 98698, new Date(84,11,11)),
+                        new Paciente(2534, "Manuel", "Revilla", "Tosco", 32752, new Date(55,7,9)),
+                        new Paciente(0130, "Wiliamsito", "Vargas", "Motoche", 572357, new Date(92,2,3))};      
         Intervencion i1 = new Intervencion(em1, "Ortodoncia", 30,120);
         Intervencion i2 = new Intervencion(em1, "Limpieza", 80,90);
         Intervencion i3 = new Intervencion(em1, "Empaste", 50,200);
@@ -144,8 +143,8 @@ public class ClinicaDentalMain {
         
         
           
-        //AgendaUI.main(args);
+        LoginJframe.main(args);
         //JFrameAgenda.main(args);
-        JFrameEmpleados.main(args);
+        //JFrameEmpleados.main(args);
     }
 }
