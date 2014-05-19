@@ -160,6 +160,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonModPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonModPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonModPaciente.setText("Modificar");
+        jButtonModPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModPacienteActionPerformed(evt);
+            }
+        });
 
         jButtonBajaPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonBajaPaciente.setForeground(new java.awt.Color(255, 255, 255));
@@ -342,6 +347,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         altapacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonAnadirPacienteActionPerformed
+
+    private void jButtonModPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModPacienteActionPerformed
+        System.out.println(jTablePacientes.getSelectedRow());
+           System.out.println(jTablePacientes.getValueAt(jTablePacientes.getSelectedRow(),4));
+    }//GEN-LAST:event_jButtonModPacienteActionPerformed
     
     private void rellenarTabla() {
         ArrayList<Paciente> pacientes = Clinica.getPacientes();

@@ -14,12 +14,12 @@ import java.util.Date;
  *
  * @author Lucky
  */
-public class JFrameAltaPacientes extends javax.swing.JFrame {
+public class JFrameModificarPaciente extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginJframe
      */
-    public JFrameAltaPacientes() {
+    public JFrameModificarPaciente() {
         initComponents();
     }
 
@@ -443,7 +443,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
 
             @Override
             public void run() {
-                new JFrameAltaPacientes().setVisible(true);
+                new JFrameModificarPaciente().setVisible(true);
             }
         });
     }
