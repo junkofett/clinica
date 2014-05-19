@@ -143,8 +143,9 @@ public class ClinicaDentalMain {
         
         
           
-        LoginJframe.main(args);
+        //LoginJframe.main(args);
         //JFrameAgenda.main(args);
         //JFrameEmpleados.main(args);
+        JFramePacientes.main(args);
     }
 }

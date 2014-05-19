@@ -349,8 +349,17 @@ public class JFramePacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnadirPacienteActionPerformed
 
     private void jButtonModPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModPacienteActionPerformed
-        System.out.println(jTablePacientes.getSelectedRow());
-           System.out.println(jTablePacientes.getValueAt(jTablePacientes.getSelectedRow(),4));
+        ArrayList<Paciente> pacientes = Clinica.getPacientes();
+        boolean encontrado = false;
+        
+        for (int i = 0; i < pacientes.size() && !encontrado; i++) {
+            if(jTablePacientes.getValueAt(jTablePacientes.getSelectedRow(),4).equals(pacientes.get(i).getDni())){
+                encontrado = true;
+                JFrameModificarPaciente modPaciente = new JFrameModificarPaciente(pacientes.get(i));
+                modPaciente.setVisible(true);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_jButtonModPacienteActionPerformed
     
     private void rellenarTabla() {

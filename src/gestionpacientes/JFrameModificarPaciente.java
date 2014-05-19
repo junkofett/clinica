@@ -19,8 +19,9 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
     /**
      * Creates new form LoginJframe
      */
-    public JFrameModificarPaciente() {
+    public JFrameModificarPaciente(Paciente pacienteMod) {
         initComponents();
+        mostrarCampos(pacienteMod);
     }
 
     /**
@@ -74,7 +75,7 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Alta de Pacientes");
+        jLabelTitulo.setText("Modificar Paciente");
 
         jLabelError.setForeground(new java.awt.Color(204, 0, 0));
 
@@ -352,7 +353,7 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
             jTextFieldTelefono.setBackground(Color.green);
             jLabelError.setText("");
             activaGuardar();
-            }else{
+        }else{
             jTextFieldTelefono.setBackground(Color.red);
             jLabelError.setText("\"Telefono\" debe ser un campo numerico");
             jButtonGuardarPaciente.setEnabled(false);
@@ -390,6 +391,15 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         }catch(NumberFormatException e){
             return false;        
         }
+    }
+    
+    public void mostrarCampos(Paciente p){
+        jTextFieldNombre.setText(p.getNombre());
+        jTextFieldApe1.setText(p.getApellido1());
+        jTextFieldApe2.setText(p.getApellido2());
+        jTextFieldDni.setText(String.valueOf(p.getDni()));
+        jTextFieldTelefono.setText(String.valueOf(p.getTelefono()));
+        jDateChooserFechaNac.setDate(p.getFechaNac());        
     }
     
     private void anadirPaciente(){
@@ -443,7 +453,7 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
 
             @Override
             public void run() {
-                new JFrameModificarPaciente().setVisible(true);
+                new JFrameModificarPaciente(null).setVisible(true);
             }
         });
     }
