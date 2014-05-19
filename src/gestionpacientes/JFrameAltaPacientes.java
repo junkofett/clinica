@@ -376,9 +376,9 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEmailFocusLost
     
     private void activaGuardar(){
-        if(!jTextFieldDni.getText().equals("") || !jTextFieldTelefono.getText().equals("")
-            || !jTextFieldNombre.getText().equals("") || !jTextFieldApe1.getText().equals("")
-            || !jTextFieldApe2.getText().equals("") || !jTextFieldEmail.getText().equals("")) 
+        if(!jTextFieldDni.getText().equals("") && !jTextFieldTelefono.getText().equals("")
+            && !jTextFieldNombre.getText().equals("") && !jTextFieldApe1.getText().equals("")
+            && !jTextFieldApe2.getText().equals("") && !jTextFieldEmail.getText().equals("")) 
             if(esNumero(jTextFieldTelefono.getText()) && esNumero(jTextFieldTelefono.getText()))
                 jButtonGuardarPaciente.setEnabled(true);
     }
