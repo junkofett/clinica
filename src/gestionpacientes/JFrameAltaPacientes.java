@@ -352,7 +352,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
             jTextFieldTelefono.setBackground(Color.green);
             jLabelError.setText("");
             activaGuardar();
-            }else{
+        }else{
             jTextFieldTelefono.setBackground(Color.red);
             jLabelError.setText("\"Telefono\" debe ser un campo numerico");
             jButtonGuardarPaciente.setEnabled(false);
@@ -378,7 +378,8 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
     private void activaGuardar(){
         if(!jTextFieldDni.getText().equals("") && !jTextFieldTelefono.getText().equals("")
             && !jTextFieldNombre.getText().equals("") && !jTextFieldApe1.getText().equals("")
-            && !jTextFieldApe2.getText().equals("") && !jTextFieldEmail.getText().equals("")) 
+            && !jTextFieldApe2.getText().equals("") && !jTextFieldEmail.getText().equals("")
+            && jDateChooserFechaNac.getDate() != null) 
             if(esNumero(jTextFieldTelefono.getText()) && esNumero(jTextFieldTelefono.getText()))
                 jButtonGuardarPaciente.setEnabled(true);
     }
@@ -393,13 +394,27 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
     }
     
     private void anadirPaciente(){
+        int dni = 0;
+        int tlf = 0;
         Date fechaNac = jDateChooserFechaNac.getDate();
         
-        Paciente[] p = {new Paciente(Integer.parseInt(jTextFieldDni.getText()),
+        try{
+            dni = Integer.parseInt(jTextFieldDni.getText());
+        }catch(NumberFormatException e){
+            jLabelError.setText("\"DNI\" es un campo NUMERICO");
+        }
+        
+        try{            
+            tlf = Integer.parseInt(jTextFieldTelefono.getText());
+        }catch(NumberFormatException e){
+            jLabelError.setText("\"Telefono\" es un campo NUMERICO");
+        } 
+        
+        Paciente[] p = {new Paciente(dni,
                                     jTextFieldNombre.getText(),
                                     jTextFieldApe1.getText(),
                                     jTextFieldApe2.getText(),
-                                    Integer.parseInt(jTextFieldTelefono.getText()),
+                                    tlf,
                                     fechaNac)};
         
         Clinica.anadirPaciente(p);

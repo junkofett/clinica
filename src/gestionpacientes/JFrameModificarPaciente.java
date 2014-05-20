@@ -378,9 +378,11 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEmailFocusLost
     
     private void activaGuardar(){
-        if(!jTextFieldDni.getText().equals("") || !jTextFieldTelefono.getText().equals("")
-            || !jTextFieldNombre.getText().equals("") || !jTextFieldApe1.getText().equals("")
-            || !jTextFieldApe2.getText().equals("") || !jTextFieldEmail.getText().equals("")) 
+        if(!jTextFieldDni.getText().equals("") && !jTextFieldTelefono.getText().equals("")
+            && !jTextFieldNombre.getText().equals("") && !jTextFieldApe1.getText().equals("")
+            && !jTextFieldApe2.getText().equals("") && !jTextFieldEmail.getText().equals("")
+            && jDateChooserFechaNac.getDate() != null) 
+            
             if(esNumero(jTextFieldTelefono.getText()) && esNumero(jTextFieldTelefono.getText()))
                 jButtonGuardarPaciente.setEnabled(true);
     }
@@ -407,10 +409,21 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         Date fechaNac = jDateChooserFechaNac.getDate();
         
         modPaciente.setNombre(jTextFieldNombre.getText());
-        modPaciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
+        
+        try{
+            modPaciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
+        }catch(NumberFormatException e){
+            jLabelError.setText("\"DNI\" es un campo NUMERICO");
+        }
+        
+        try{            
+            modPaciente.setTelefono(Integer.parseInt(jTextFieldTelefono.getText()));
+        }catch(NumberFormatException e){
+            jLabelError.setText("\"Telefono\" es un campo NUMERICO");
+        } 
+        
         modPaciente.setApellido1(jTextFieldApe1.getText());
-        modPaciente.setApellido2(jTextFieldApe2.getText());
-        modPaciente.setTelefono(Integer.parseInt(jTextFieldTelefono.getText()));
+        modPaciente.setApellido2(jTextFieldApe2.getText());   
         modPaciente.setFechaNac(fechaNac);
     }
     
