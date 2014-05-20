@@ -9,6 +9,7 @@ import gestionpacientes.Paciente;
 import gestionintervencion.Intervencion;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -26,6 +27,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         this.paciente = p;
         seleccionIntervencion();
         mostrarPaciente();
+        actualizarHoras();
     }
 
     /**
@@ -50,6 +52,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListHorasDisponibles = new javax.swing.JList();
+        jLabelHorasDisponibles = new javax.swing.JLabel();
         jLabelDatosCita = new javax.swing.JLabel();
         jButtonCancelarNuevaCita = new javax.swing.JButton();
         jButtonGuardarCita = new javax.swing.JButton();
@@ -100,6 +105,15 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
 
         jLabel2.setText(":");
 
+        jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = modeloListaDefecto();
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jListHorasDisponibles);
+
+        jLabelHorasDisponibles.setText("Horas disponibles:");
+
         javax.swing.GroupLayout jPanelAltaPacienteFormLayout = new javax.swing.GroupLayout(jPanelAltaPacienteForm);
         jPanelAltaPacienteForm.setLayout(jPanelAltaPacienteFormLayout);
         jPanelAltaPacienteFormLayout.setHorizontalGroup(
@@ -107,15 +121,12 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
             .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
-                        .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCalendarFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
-                                .addComponent(jLabelIntervencion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxIntervenciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(jLabelDuracion))
+                    .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jCalendarFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+                            .addComponent(jLabelIntervencion)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jComboBoxIntervenciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -123,8 +134,17 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(jLabelDuracion))
+                    .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelHorasDisponibles)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 6, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelAltaPacienteFormLayout.setVerticalGroup(
@@ -135,15 +155,19 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                     .addComponent(jLabelIntervencion)
                     .addComponent(jComboBoxIntervenciones, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDuracion))
-                .addGap(27, 27, 27)
-                .addComponent(jCalendarFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jLabelHorasDisponibles)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCalendarFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         jLabelDatosCita.setForeground(new java.awt.Color(135, 135, 135));
@@ -181,7 +205,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                     .addComponent(jLabelError, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(141, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(288, Short.MAX_VALUE)
                 .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelContenidoLayout.createSequentialGroup()
                         .addComponent(jButtonGuardarCita)
@@ -242,6 +266,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         /*JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();*/
+        actualizarHoras();
     }//GEN-LAST:event_jButtonCancelarNuevaCitaActionPerformed
 
     private void jButtonGuardarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarCitaActionPerformed
@@ -254,6 +279,66 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private void jComboBoxIntervencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIntervencionesActionPerformed
         seleccionIntervencion();
     }//GEN-LAST:event_jComboBoxIntervencionesActionPerformed
+    
+    private String[] modeloListaDefecto(){
+        String[] strings = { "9:30", "9:45", "10:00", "10:15", "10:30", "10:45",
+                "11:00", "11:15", "11:30", "11:45", "12:00", "12:15",
+                "12:30", "12:45", "13:00", "13:15", "13:30", "13:45",
+                "14:00"};
+        
+        return strings;
+                
+    }
+    
+    private void actualizarHoras(){
+        ArrayList<Cita> citasPendientes = Clinica.getCitasPendientes();
+        ArrayList<Cita> citasMismoDia = new ArrayList<>();
+        ArrayList<String> modeloNuevo = new ArrayList<>();
+        SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+
+           
+        for (Cita c: citasPendientes){
+            if(c.getFecha().substring(0, 10).equals(sd.format(jCalendarFechaCita.getDate()).substring(0, 10)))
+                citasMismoDia.add(c);
+        }
+        
+        for (Cita c: citasMismoDia){
+            for(int j = 0; j < jListHorasDisponibles.getModel().getSize(); j++){
+                boolean encontrado = false;
+            
+                if(!c.getFecha().substring(12,17).equals(jListHorasDisponibles.getModel().getElementAt(j).toString()))
+                    modeloNuevo.add(jListHorasDisponibles.getModel().getElementAt(j).toString());
+            }
+            
+        final String[] model = new String[modeloNuevo.size()];
+        
+        for(int i = 0; i < modeloNuevo.size(); i++){
+            model[i] = modeloNuevo.get(i);
+        }
+        
+        jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = model;
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+            
+        /*for (Cita c: citasMismoDia){
+            if(c.getFecha().substring(12,17).equals(sd.format(jCalendarFechaCita.getDate()).substring(12, 17)))
+                for(int j = 0; j < jListHorasDisponibles.getModel().getSize(); j++){
+                    if(!jListHorasDisponibles.getModel().getElementAt(j).toString().equals(sd.format(jCalendarFechaCita.getDate()).substring(12, 17)))                  
+                        return;
+            }
+        }*/
+        
+        
+        System.out.println(citasPendientes.get(0).getFecha().substring(0, 10));
+        System.out.println(sd.format(jCalendarFechaCita.getDate()));
+        /*for (Cita c: citasPendientes){
+            if(c.getFecha().substring(0, 5))
+        }*/
+        
+        }
+    }
     
     private void seleccionIntervencion(){
         String opc = String.valueOf(jComboBoxIntervenciones.getSelectedItem());
@@ -374,12 +459,15 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDatosCita;
     private javax.swing.JLabel jLabelDuracion;
     private javax.swing.JLabel jLabelError;
+    private javax.swing.JLabel jLabelHorasDisponibles;
     private javax.swing.JLabel jLabelImgFondo;
     private javax.swing.JLabel jLabelIntervencion;
     private javax.swing.JLabel jLabelPaciente;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JList jListHorasDisponibles;
     private javax.swing.JPanel jPanelAltaPacienteForm;
     private javax.swing.JPanel jPanelContenido;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

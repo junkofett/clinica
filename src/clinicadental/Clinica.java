@@ -70,6 +70,17 @@ public class Clinica {
         return intervenciones;
     }
     
+    public static ArrayList<Cita> getCitasPendientes(){
+        ArrayList<Cita> citasPendientes = new ArrayList<>();
+        
+        for(Cita c: agenda){
+            if (!c.getRealizada())
+                citasPendientes.add(c);
+        }
+        
+        return citasPendientes;
+    }
+    
     public static void mostrarEm(){
         for(Empleado em: empleados){
             System.out.println(em);

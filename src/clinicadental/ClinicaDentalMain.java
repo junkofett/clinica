@@ -35,10 +35,10 @@ public class ClinicaDentalMain {
                         new Paciente(0130, "Wiliamsito", "Vargas", "Motoche", 572357, new Date(92,2,3))};      
         Intervencion i1 = new Intervencion(em1, "Ortodoncia", 30,120);
         Intervencion i2 = new Intervencion(em1, "Limpieza", 80,90);
-        Intervencion i3 = new Intervencion(em1, "Empaste", 50,200);
-        Intervencion i4 = new Intervencion(em1, "Revisión",0,30);
-        Intervencion i5 = new Intervencion(em1, "Extracción",45,15);
-        Intervencion i6 = new Intervencion(em1, "Reconstruccion",100,200);
+        Intervencion i3 = new Intervencion(em1, "Empaste", 50,210);
+        Intervencion i4 = new Intervencion(em1, "Revisión",0,15);
+        Intervencion i5 = new Intervencion(em1, "Extracción",45,30);
+        Intervencion i6 = new Intervencion(em1, "Reconstruccion",100,210);
         
         
         Clinica.anadirPaciente(p);
@@ -54,17 +54,17 @@ public class ClinicaDentalMain {
         Clinica.anadirIntervencion(i5);
         Clinica.anadirIntervencion(i6);
         
-        Clinica.anadirCita(4, p[0], i1, true, new Date(114, 5 - 1, 3, 16, 30));
-        Clinica.anadirCita(2, p[1], i2, true, new Date(114, 3 - 1, 3, 19, 00));
-        Clinica.anadirCita(4, p[0], i1, false, new Date(114, 2 - 1, 3, 22, 00));
-        Clinica.anadirCita(2, p[1], i2, false, new Date(114, 6 - 1, 3, 13, 30));
-        Clinica.anadirCita(2, p[1], i2, true, new Date(113, 9 - 1, 3, 18, 00));
-        Clinica.anadirCita(4, p[0], i1, true, new Date(114, 4 - 1, 2, 16, 30));
-        Clinica.anadirCita(2, p[1], i2, true, new Date(114, 5 - 1, 3, 2, 30));
-        Clinica.anadirCita(4, p[0], i1, false, new Date(114, 7 - 1, 3, 8, 00));
-        Clinica.anadirCita(2, p[1], i2, false, new Date(114, 3 - 1, 3, 11, 30));
-        Clinica.anadirCita(2, p[1], i2, true, new Date(114, 5 - 1, 1, 12, 00));
-        Clinica.anadirCita(4, p[0], i1, true, new Date(114, 2 - 1, 5, 16, 30));
+        Clinica.anadirCita(4, p[0], i1, false, new Date(114, 5 - 1, 20, 9, 30));
+        Clinica.anadirCita(2, p[1], i2, false, new Date(114, 5 - 1, 20, 9, 45));
+        Clinica.anadirCita(4, p[0], i1, false, new Date(114, 5 - 1, 20, 10, 00));
+        Clinica.anadirCita(2, p[2], i2, false, new Date(114, 5 - 1, 20, 10, 30));
+        Clinica.anadirCita(2, p[1], i2, false, new Date(113, 5 - 1, 20, 10, 45));
+        Clinica.anadirCita(4, p[0], i1, false, new Date(114, 5 - 1, 20, 11, 00));
+        Clinica.anadirCita(2, p[2], i2, false, new Date(114, 5 - 1, 20, 11, 15));
+        Clinica.anadirCita(4, p[0], i1, false, new Date(114, 5 - 1, 20, 11, 30));
+        Clinica.anadirCita(2, p[2], i2, false, new Date(114, 5 - 1, 20, 11, 45));
+        Clinica.anadirCita(2, p[1], i2, false, new Date(114, 5 - 1, 20, 12, 00));
+        Clinica.anadirCita(4, p[2], i1, false, new Date(114, 5 - 1, 20, 12, 15));
         /*Clinica.anadirCita(2, p[1], i2,true);
          Clinica.anadirCita(4, p[0], i1,false);
          Clinica.anadirCita(2, p[1], i2,false);
