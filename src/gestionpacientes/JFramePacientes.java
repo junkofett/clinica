@@ -6,6 +6,7 @@ package gestionpacientes;
 
 import clinicadental.*;
 import gestionagenda.JFrameAgenda;
+import gestionagenda.JFrameNuevaCita;
 import gestionarticulos.JFrameArticulos;
 import gestionempleados.JFrameEmpleados;
 import gestionintervencion.JFrameIntervencion;
@@ -186,6 +187,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonNuevaCitaPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonNuevaCitaPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonNuevaCitaPaciente.setText("Nueva Cita");
+        jButtonNuevaCitaPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevaCitaPacienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
@@ -349,18 +355,31 @@ public class JFramePacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnadirPacienteActionPerformed
 
     private void jButtonModPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModPacienteActionPerformed
+        JFrameModificarPaciente modPaciente = new JFrameModificarPaciente(encontrarPaciente());
+        modPaciente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonModPacienteActionPerformed
+
+    private void jButtonNuevaCitaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevaCitaPacienteActionPerformed
+        JFrameNuevaCita nuevaCita = new JFrameNuevaCita(encontrarPaciente());
+        nuevaCita.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonNuevaCitaPacienteActionPerformed
+    
+    private Paciente encontrarPaciente(){
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
+        Paciente pacienteEncontrado = null;
         boolean encontrado = false;
         
         for (int i = 0; i < pacientes.size() && !encontrado; i++) {
             if(jTablePacientes.getValueAt(jTablePacientes.getSelectedRow(),4).equals(pacientes.get(i).getDni())){
                 encontrado = true;
-                JFrameModificarPaciente modPaciente = new JFrameModificarPaciente(pacientes.get(i));
-                modPaciente.setVisible(true);
-                this.dispose();
+                pacienteEncontrado = pacientes.get(i);                 
             }
         }
-    }//GEN-LAST:event_jButtonModPacienteActionPerformed
+        
+        return pacienteEncontrado;
+    }
     
     private void rellenarTabla() {
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
