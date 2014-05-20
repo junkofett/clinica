@@ -43,14 +43,14 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         jPanelContenido = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jLabelError = new javax.swing.JLabel();
-        jPanelAltaPacienteForm = new javax.swing.JPanel();
+        jPanelNuevaCita = new javax.swing.JPanel();
         jCalendarFechaCita = new com.toedter.calendar.JCalendar();
         jLabelIntervencion = new javax.swing.JLabel();
         jComboBoxIntervenciones = new javax.swing.JComboBox();
         jLabelDuracion = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelHora = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelSeparadorHora = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListHorasDisponibles = new javax.swing.JList();
@@ -80,9 +80,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
 
         jLabelError.setForeground(new java.awt.Color(204, 0, 0));
 
-        jPanelAltaPacienteForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(135, 135, 135)));
-        jPanelAltaPacienteForm.setMaximumSize(new java.awt.Dimension(0, 0));
-        jPanelAltaPacienteForm.setOpaque(false);
+        jPanelNuevaCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(135, 135, 135)));
+        jPanelNuevaCita.setMaximumSize(new java.awt.Dimension(0, 0));
+        jPanelNuevaCita.setOpaque(false);
 
         jLabelIntervencion.setText("Intervención:");
 
@@ -101,12 +101,12 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
 
         jLabelDuracion.setText("Duración:");
 
-        jLabel1.setText("Hora");
+        jLabelHora.setText("Hora");
 
-        jLabel2.setText(":");
+        jLabelSeparadorHora.setText(":");
 
         jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = modeloListaDefecto();
+            String[] strings = actualizarHoras();
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -114,58 +114,58 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
 
         jLabelHorasDisponibles.setText("Horas disponibles:");
 
-        javax.swing.GroupLayout jPanelAltaPacienteFormLayout = new javax.swing.GroupLayout(jPanelAltaPacienteForm);
-        jPanelAltaPacienteForm.setLayout(jPanelAltaPacienteFormLayout);
-        jPanelAltaPacienteFormLayout.setHorizontalGroup(
-            jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelNuevaCitaLayout = new javax.swing.GroupLayout(jPanelNuevaCita);
+        jPanelNuevaCita.setLayout(jPanelNuevaCitaLayout);
+        jPanelNuevaCitaLayout.setHorizontalGroup(
+            jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jCalendarFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+                        .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                             .addComponent(jLabelIntervencion)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jComboBoxIntervenciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                    .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
+                        .addComponent(jLabelHora)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelSeparadorHora)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+                .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(jLabelDuracion))
-                    .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+                    .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelHorasDisponibles)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 6, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanelAltaPacienteFormLayout.setVerticalGroup(
-            jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAltaPacienteFormLayout.createSequentialGroup()
+        jPanelNuevaCitaLayout.setVerticalGroup(
+            jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelIntervencion)
                     .addComponent(jComboBoxIntervenciones, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDuracion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jLabelHorasDisponibles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCalendarFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAltaPacienteFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHora)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelSeparadorHora)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
@@ -216,7 +216,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                             .addComponent(jLabelDatosCita)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelPaciente))
-                        .addComponent(jPanelAltaPacienteForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanelNuevaCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36))
         );
         jPanelContenidoLayout.setVerticalGroup(
@@ -229,7 +229,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                     .addComponent(jLabelDatosCita)
                     .addComponent(jLabelPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelAltaPacienteForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelNuevaCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarNuevaCita)
@@ -279,18 +279,8 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private void jComboBoxIntervencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIntervencionesActionPerformed
         seleccionIntervencion();
     }//GEN-LAST:event_jComboBoxIntervencionesActionPerformed
-    
-    private String[] modeloListaDefecto(){
-        String[] strings = { "9:30", "9:45", "10:00", "10:15", "10:30", "10:45",
-                "11:00", "11:15", "11:30", "11:45", "12:00", "12:15",
-                "12:30", "12:45", "13:00", "13:15", "13:30", "13:45",
-                "14:00"};
-        
-        return strings;
-                
-    }
-    
-    private void actualizarHoras(){
+     
+    private String[] actualizarHoras(){
         ArrayList<Cita> citasPendientes = Clinica.getCitasPendientes();
         ArrayList<Cita> citasMismoDia = new ArrayList<>();
         ArrayList<String> modeloNuevo = new ArrayList<>();
@@ -306,21 +296,23 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
             for(int j = 0; j < jListHorasDisponibles.getModel().getSize(); j++){
                 boolean encontrado = false;
             
-                if(!c.getFecha().substring(12,17).equals(jListHorasDisponibles.getModel().getElementAt(j).toString()))
+                if(!c.getFecha().substring(12).equals(jListHorasDisponibles.getModel().getElementAt(j).toString()))
                     modeloNuevo.add(jListHorasDisponibles.getModel().getElementAt(j).toString());
             }
+        }
             
-        final String[] model = new String[modeloNuevo.size()];
+        String[] model = new String[modeloNuevo.size()];
         
         for(int i = 0; i < modeloNuevo.size(); i++){
             model[i] = modeloNuevo.get(i);
         }
         
-        jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
+        return model;
+        /*jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = model;
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
-        });
+        });*/
             
         /*for (Cita c: citasMismoDia){
             if(c.getFecha().substring(12,17).equals(sd.format(jCalendarFechaCita.getDate()).substring(12, 17)))
@@ -331,13 +323,11 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         }*/
         
         
-        System.out.println(citasPendientes.get(0).getFecha().substring(0, 10));
-        System.out.println(sd.format(jCalendarFechaCita.getDate()));
+        //System.out.println(citasPendientes.get(0).getFecha().substring(0, 10));
+        //System.out.println(sd.format(jCalendarFechaCita.getDate()));
         /*for (Cita c: citasPendientes){
             if(c.getFecha().substring(0, 5))
         }*/
-        
-        }
     }
     
     private void seleccionIntervencion(){
@@ -446,7 +436,10 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
             }
         });
     }
-    
+    private String[] modeloListaDefecto = { "9:30", "9:45", "10:00", "10:15", "10:30", "10:45",
+                "11:00", "11:15", "11:30", "11:45", "12:00", "12:15",
+                "12:30", "12:45", "13:00", "13:15", "13:30", "13:45",
+                "14:00"};
     private Paciente paciente;
     private Intervencion intervencionSeleccionada;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -454,19 +447,19 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGuardarCita;
     private com.toedter.calendar.JCalendar jCalendarFechaCita;
     private javax.swing.JComboBox jComboBoxIntervenciones;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelDatosCita;
     private javax.swing.JLabel jLabelDuracion;
     private javax.swing.JLabel jLabelError;
+    private javax.swing.JLabel jLabelHora;
     private javax.swing.JLabel jLabelHorasDisponibles;
     private javax.swing.JLabel jLabelImgFondo;
     private javax.swing.JLabel jLabelIntervencion;
     private javax.swing.JLabel jLabelPaciente;
+    private javax.swing.JLabel jLabelSeparadorHora;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JList jListHorasDisponibles;
-    private javax.swing.JPanel jPanelAltaPacienteForm;
     private javax.swing.JPanel jPanelContenido;
+    private javax.swing.JPanel jPanelNuevaCita;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

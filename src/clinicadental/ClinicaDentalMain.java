@@ -141,6 +141,45 @@ public class ClinicaDentalMain {
 //            System.out.println("error");    
 //        }
         
+        /* NOMBRES WAPETONES
+            Vaca Pascual
+            Porro Minondo
+            Toro Coronado
+            Margarita Flores
+            Margarita del Campo
+            Rebeca Jorge García
+            Leña del Pino
+            Rosas Ramos
+            María Almudena de Antonio y Antonio
+            Mogollón
+            Marcilla de Teruel Moctezuma Capelo
+            Ruiz de Gaunas
+            Jacob Añonuevo
+            Alvaro Marín Alvaro
+            Cabezón
+            Blau Schwipl
+            Cerda
+            Mola Pascual
+            Paja
+            Majadas
+            Gordo
+            Ojete
+            Salido
+            Melones
+            Cotillas
+            Cabello Barbero
+            Francisco Javier Fernando Diego
+            Sayans
+            Conejo
+            Enamorado
+            Feito
+            Peleo
+            Nieves Blancas
+            Da Pena
+            Mangitani Mangitani
+            Cogollos        
+        */
+        
         
           
         //LoginJframe.main(args);
