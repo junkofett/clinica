@@ -53,6 +53,16 @@ public class Cita {
         return sd.format(fecha);
     }
     
+    public String getFechaFin() {
+        int duracion = intervencion.getDuracion();
+        
+        Date fechaFin = (Date)fecha.clone();
+        fechaFin.setMinutes(fechaFin.getMinutes() + duracion);
+        
+        SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        return sd.format(fechaFin);
+    }
+    
     public int getConsulta(){
         return consulta;
     }

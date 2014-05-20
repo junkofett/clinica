@@ -292,19 +292,10 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                 citasMismoDia.add(c);
         }
         
-        for (Cita c: citasMismoDia){
-            for(int j = 0; j < jListHorasDisponibles.getModel().getSize(); j++){
-                boolean encontrado = false;
-            
-                if(!c.getFecha().substring(12).equals(jListHorasDisponibles.getModel().getElementAt(j).toString()))
-                    modeloNuevo.add(jListHorasDisponibles.getModel().getElementAt(j).toString());
-            }
-        }
-            
-        String[] model = new String[modeloNuevo.size()];
+        String[] model = new String[citasMismoDia.size()];
         
-        for(int i = 0; i < modeloNuevo.size(); i++){
-            model[i] = modeloNuevo.get(i);
+        for (int i= 0; i < model.length; i++) {
+            model[i] = citasMismoDia.get(i).getFecha().substring(11) + " - " + citasMismoDia.get(i).getFechaFin().substring(11);
         }
         
         return model;
