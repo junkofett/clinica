@@ -397,6 +397,23 @@ public class JFramePacientes extends javax.swing.JFrame {
             }            
         }
         
+        jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
         rellenarTabla();
         
     }//GEN-LAST:event_jButtonBajaPacienteActionPerformed
