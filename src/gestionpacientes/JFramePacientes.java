@@ -175,6 +175,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonBajaPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonBajaPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBajaPaciente.setText("Baja");
+        jButtonBajaPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBajaPacienteActionPerformed(evt);
+            }
+        });
 
         jButtonEliminarPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonEliminarPaciente.setForeground(new java.awt.Color(255, 255, 255));
@@ -361,9 +366,14 @@ public class JFramePacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnadirPacienteActionPerformed
 
     private void jButtonModPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModPacienteActionPerformed
+        try{
         JFrameModificarPaciente modPaciente = new JFrameModificarPaciente(encontrarPaciente());
         modPaciente.setVisible(true);
         this.dispose();
+        } catch (IndexOutOfBoundsException e) {
+                jLabelError.setText("ERROR: debe seleccionar una fila.");
+        }
+        
     }//GEN-LAST:event_jButtonModPacienteActionPerformed
 
     private void jButtonNuevaCitaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevaCitaPacienteActionPerformed
@@ -375,6 +385,25 @@ public class JFramePacientes extends javax.swing.JFrame {
     private void jTablePacientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTablePacientesFocusGained
         jButtonNuevaCitaPaciente.setEnabled(true);
     }//GEN-LAST:event_jTablePacientesFocusGained
+
+    private void jButtonBajaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaPacienteActionPerformed
+        ArrayList<Paciente> pacientes = Clinica.getPacientes();     
+        
+//        for (int i = 0; i < jTablePacientes.getSelectedRows().length; i++) {
+//            System.out.println(String.valueOf(pacientes.get(6).getDni()));
+//        }
+       
+        for (int i = 0; i < jTablePacientes.getSelectedRows().length; i++) {
+            for (int j = 0; j < pacientes.size(); j++) {
+                if (jTablePacientes.getValueAt(jTablePacientes.getSelectedRows()[i], 4).equals(pacientes.get(j).getDni())){
+                    pacientes.get(j).setAlta(false);
+                }
+            }            
+        }
+        jTablePacientes.
+        rellenarTabla();
+        
+    }//GEN-LAST:event_jButtonBajaPacienteActionPerformed
     
     private Paciente encontrarPaciente(){
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
@@ -396,7 +425,9 @@ public class JFramePacientes extends javax.swing.JFrame {
         
         for (int i = 0; i < pacientes.size(); i++) {
             for (int j = 0; j < pacientes.get(i).datosTabla().length; j++) {
-                jTablePacientes.setValueAt(pacientes.get(i).datosTabla()[j],i,j);
+                if (pacientes.get(i).isAlta())
+                    jTablePacientes.setValueAt(pacientes.get(i).datosTabla()[j],i,j);
+                
             }
         }
     }

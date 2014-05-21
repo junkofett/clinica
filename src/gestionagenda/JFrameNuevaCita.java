@@ -135,11 +135,6 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                 jListHorasDisponiblesFocusGained(evt);
             }
         });
-        jListHorasDisponibles.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListHorasDisponiblesPropertyChange(evt);
-            }
-        });
         jScrollPane2.setViewportView(jListHorasDisponibles);
 
         jLabelHorasDisponibles.setText("Horas citadas:");
@@ -327,10 +322,6 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         mostrarHoraYduracion();
         activaGuardar();
     }//GEN-LAST:event_jListHorasDisponiblesFocusGained
-
-    private void jListHorasDisponiblesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListHorasDisponiblesPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListHorasDisponiblesPropertyChange
 
     private void jTextFieldHorasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldHorasFocusLost
         activaGuardar();
