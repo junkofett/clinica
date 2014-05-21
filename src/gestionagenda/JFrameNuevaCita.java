@@ -84,6 +84,12 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         jPanelNuevaCita.setMaximumSize(new java.awt.Dimension(0, 0));
         jPanelNuevaCita.setOpaque(false);
 
+        jCalendarFechaCita.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jCalendarFechaCitaPropertyChange(evt);
+            }
+        });
+
         jLabelIntervencion.setText("Intervención:");
 
         String[] nombreIntervenciones = new String[Clinica.getIntervenciones().size()];
@@ -279,6 +285,14 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private void jComboBoxIntervencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIntervencionesActionPerformed
         seleccionIntervencion();
     }//GEN-LAST:event_jComboBoxIntervencionesActionPerformed
+
+    private void jCalendarFechaCitaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarFechaCitaPropertyChange
+        jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = actualizarHoras();
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+    }//GEN-LAST:event_jCalendarFechaCitaPropertyChange
      
     private String[] actualizarHoras(){
         ArrayList<Cita> citasPendientes = Clinica.getCitasPendientes();
