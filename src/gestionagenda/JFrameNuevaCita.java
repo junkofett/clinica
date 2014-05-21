@@ -6,6 +6,7 @@ package gestionagenda;
 
 import clinicadental.*;
 import gestionpacientes.Paciente;
+import gestionpacientes.JFramePacientes;
 import gestionintervencion.Intervencion;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -49,9 +50,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         jComboBoxIntervenciones = new javax.swing.JComboBox();
         jLabelDuracion = new javax.swing.JLabel();
         jLabelHora = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldHoras = new javax.swing.JTextField();
         jLabelSeparadorHora = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldMinutos = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListHorasDisponibles = new javax.swing.JList();
         jLabelHorasDisponibles = new javax.swing.JLabel();
@@ -110,12 +111,34 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
 
         jLabelHora.setText("Hora");
 
+        jTextFieldHoras.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldHorasFocusLost(evt);
+            }
+        });
+
         jLabelSeparadorHora.setText(":");
+
+        jTextFieldMinutos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldMinutosFocusLost(evt);
+            }
+        });
 
         jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = actualizarHoras();
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
+        });
+        jListHorasDisponibles.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jListHorasDisponiblesFocusGained(evt);
+            }
+        });
+        jListHorasDisponibles.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListHorasDisponiblesPropertyChange(evt);
+            }
         });
         jScrollPane2.setViewportView(jListHorasDisponibles);
 
@@ -139,11 +162,11 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                     .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                         .addComponent(jLabelHora)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelSeparadorHora)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelHoraHasta)))
                 .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,9 +198,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelHora)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSeparadorHora)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelHoraHasta))
                 .addGap(22, 22, 22))
         );
@@ -275,21 +298,21 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonCancelarNuevaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarNuevaCitaActionPerformed
-        /*JFramePacientes pacientes = new JFramePacientes();
+        JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
-        this.dispose();*/
-        actualizarHoras();
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarNuevaCitaActionPerformed
 
     private void jButtonGuardarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarCitaActionPerformed
-       /* anadirPaciente();
+        anadirCita();
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
-        this.dispose();*/
+        this.dispose();
     }//GEN-LAST:event_jButtonGuardarCitaActionPerformed
 
     private void jComboBoxIntervencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIntervencionesActionPerformed
         seleccionIntervencion();
+        activaGuardar();
     }//GEN-LAST:event_jComboBoxIntervencionesActionPerformed
 
     private void jCalendarFechaCitaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarFechaCitaPropertyChange
@@ -299,7 +322,39 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
     }//GEN-LAST:event_jCalendarFechaCitaPropertyChange
-     
+
+    private void jListHorasDisponiblesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jListHorasDisponiblesFocusGained
+        mostrarHoraYduracion();
+        activaGuardar();
+    }//GEN-LAST:event_jListHorasDisponiblesFocusGained
+
+    private void jListHorasDisponiblesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListHorasDisponiblesPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListHorasDisponiblesPropertyChange
+
+    private void jTextFieldHorasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldHorasFocusLost
+        activaGuardar();
+    }//GEN-LAST:event_jTextFieldHorasFocusLost
+
+    private void jTextFieldMinutosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldMinutosFocusLost
+        activaGuardar();
+    }//GEN-LAST:event_jTextFieldMinutosFocusLost
+    
+    private void mostrarHoraYduracion(){
+        SimpleDateFormat sd = new SimpleDateFormat("hh:mm");
+        int minutoNuevo = Integer.parseInt(jListHorasDisponibles.getSelectedValue().toString().substring(11));
+        
+        jTextFieldHoras.setText(jListHorasDisponibles.getSelectedValue().toString().substring(8, 10));
+        jTextFieldMinutos.setText(jListHorasDisponibles.getSelectedValue().toString().substring(11));
+        
+        Date fechaFin = (Date)jCalendarFechaCita.getDate().clone();
+        fechaFin.setHours(Integer.parseInt(jListHorasDisponibles.getSelectedValue().toString().substring(8, 10)));
+        fechaFin.setMinutes(minutoNuevo+intervencionSeleccionada.getDuracion());
+        
+        jLabelHoraHasta.setText("hasta: "+sd.format(fechaFin));
+    }  
+    
+    
     private String[] actualizarHoras(){
         ArrayList<Cita> citasPendientes = Clinica.getCitasPendientes();
         ArrayList<Cita> citasMismoDia = new ArrayList<>();
@@ -337,12 +392,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     }
     
     private void activaGuardar(){
-        /*if(!jTextFieldDni.getText().equals("") && !jTextFieldTelefono.getText().equals("")
-            && !jTextFieldNombre.getText().equals("") && !jTextFieldApe1.getText().equals("")
-            && !jTextFieldApe2.getText().equals("") && !jTextFieldHora.getText().equals("")
-            && jDateChooserFechaNac.getDate() != null) 
-            if(esNumero(jTextFieldTelefono.getText()) && esNumero(jTextFieldTelefono.getText()))
-                jButtonGuardarCita.setEnabled(true);*/
+        if(!jTextFieldHoras.getText().equals("") && !jTextFieldMinutos.getText().equals("")) 
+            if(esNumero(jTextFieldHoras.getText()) && esNumero(jTextFieldMinutos.getText()))
+                jButtonGuardarCita.setEnabled(true);
     }
     
     private boolean esNumero(String s){
@@ -354,31 +406,28 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         }
     }
     
-    private void anadirPaciente(){
-       /* int dni = 0;
-        int tlf = 0;
-        Date fechaNac = jDateChooserFechaNac.getDate();
-        
+    private void anadirCita(){
+       
+        Date fechaCita = jCalendarFechaCita.getDate();
+        int mins = 0;
+        int hora = 0;
+                
         try{
-            dni = Integer.parseInt(jTextFieldDni.getText());
+            mins = Integer.parseInt(jTextFieldMinutos.getText());
         }catch(NumberFormatException e){
-            jLabelError.setText("\"DNI\" es un campo NUMERICO");
+            jLabelError.setText("\"MINUTOS\" es un campo NUMERICO");
         }
         
         try{            
-            tlf = Integer.parseInt(jTextFieldTelefono.getText());
+            hora = Integer.parseInt(jTextFieldHoras.getText());
         }catch(NumberFormatException e){
-            jLabelError.setText("\"Telefono\" es un campo NUMERICO");
+            jLabelError.setText("\"HORA\" es un campo NUMERICO");
         } 
         
-        Paciente[] p = {new Paciente(dni,
-                                    jTextFieldNombre.getText(),
-                                    jTextFieldApe1.getText(),
-                                    jTextFieldApe2.getText(),
-                                    tlf,
-                                    fechaNac)};
+        fechaCita.setMinutes(mins);
+        fechaCita.setHours(hora);
         
-        Clinica.anadirPaciente(p);*/
+        Clinica.anadirCita(1, paciente, intervencionSeleccionada, false, fechaCita);
     }
     
     private void mostrarPaciente(){
@@ -453,7 +502,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelContenido;
     private javax.swing.JPanel jPanelNuevaCita;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextFieldHoras;
+    private javax.swing.JTextField jTextFieldMinutos;
     // End of variables declaration//GEN-END:variables
 }
