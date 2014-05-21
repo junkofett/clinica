@@ -143,6 +143,11 @@ public class JFramePacientes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTablePacientes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTablePacientesFocusGained(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTablePacientes);
 
         jButtonFiltrarPaciente.setBackground(new java.awt.Color(0, 128, 192));
@@ -316,6 +321,7 @@ public class JFramePacientes extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         rellenarTabla();
+        jButtonNuevaCitaPaciente.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
@@ -365,6 +371,10 @@ public class JFramePacientes extends javax.swing.JFrame {
         nuevaCita.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonNuevaCitaPacienteActionPerformed
+
+    private void jTablePacientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTablePacientesFocusGained
+        jButtonNuevaCitaPaciente.setEnabled(true);
+    }//GEN-LAST:event_jTablePacientesFocusGained
     
     private Paciente encontrarPaciente(){
         ArrayList<Paciente> pacientes = Clinica.getPacientes();

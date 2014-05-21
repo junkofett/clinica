@@ -55,6 +55,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jListHorasDisponibles = new javax.swing.JList();
         jLabelHorasDisponibles = new javax.swing.JLabel();
+        jLabelHoraHasta = new javax.swing.JLabel();
         jLabelDatosCita = new javax.swing.JLabel();
         jButtonCancelarNuevaCita = new javax.swing.JButton();
         jButtonGuardarCita = new javax.swing.JButton();
@@ -118,7 +119,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jListHorasDisponibles);
 
-        jLabelHorasDisponibles.setText("Horas disponibles:");
+        jLabelHorasDisponibles.setText("Horas citadas:");
+
+        jLabelHoraHasta.setText("hasta: ");
 
         javax.swing.GroupLayout jPanelNuevaCitaLayout = new javax.swing.GroupLayout(jPanelNuevaCita);
         jPanelNuevaCita.setLayout(jPanelNuevaCitaLayout);
@@ -140,7 +143,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelSeparadorHora)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelHoraHasta)))
                 .addGroup(jPanelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelNuevaCitaLayout.createSequentialGroup()
                         .addGap(18, 18, Short.MAX_VALUE)
@@ -172,7 +177,8 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
                     .addComponent(jLabelHora)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSeparadorHora)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelHoraHasta))
                 .addGap(22, 22, 22))
         );
 
@@ -313,26 +319,6 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         }
         
         return model;
-        /*jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = model;
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });*/
-            
-        /*for (Cita c: citasMismoDia){
-            if(c.getFecha().substring(12,17).equals(sd.format(jCalendarFechaCita.getDate()).substring(12, 17)))
-                for(int j = 0; j < jListHorasDisponibles.getModel().getSize(); j++){
-                    if(!jListHorasDisponibles.getModel().getElementAt(j).toString().equals(sd.format(jCalendarFechaCita.getDate()).substring(12, 17)))                  
-                        return;
-            }
-        }*/
-        
-        
-        //System.out.println(citasPendientes.get(0).getFecha().substring(0, 10));
-        //System.out.println(sd.format(jCalendarFechaCita.getDate()));
-        /*for (Cita c: citasPendientes){
-            if(c.getFecha().substring(0, 5))
-        }*/
     }
     
     private void seleccionIntervencion(){
@@ -456,6 +442,7 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDuracion;
     private javax.swing.JLabel jLabelError;
     private javax.swing.JLabel jLabelHora;
+    private javax.swing.JLabel jLabelHoraHasta;
     private javax.swing.JLabel jLabelHorasDisponibles;
     private javax.swing.JLabel jLabelImgFondo;
     private javax.swing.JLabel jLabelIntervencion;
