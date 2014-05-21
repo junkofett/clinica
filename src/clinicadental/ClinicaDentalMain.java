@@ -27,12 +27,23 @@ public class ClinicaDentalMain {
      */
     public static void main(String[] args){
         ArrayList<Empleado> emples = new ArrayList<>();
-        Empleado em1 = new Empleado(4,"Antuan", "El", "Trenes", 955893215,new Date(82,4,5), Roles.ODONTOLOGO, "odon", "odon");
-        Empleado em2 = new Empleado(8,"Dolor", "A.", "Nal", 555984565, new Date(66,2,2),Roles.PROPIETARIO, "proper", "proper");
-        Empleado em3 = new Empleado(468,"Tete", "Colorado", "Nal", 34587535, new Date(77,5,3), Roles.RECEPCIONISTA, "tete", "tete");        
-        Paciente[] p = {new Paciente(77, "Loreto", "Prieto", "Memoles", 98698, new Date(84,11,11)),
-                        new Paciente(2534, "Manuel", "Revilla", "Tosco", 32752, new Date(55,7,9)),
-                        new Paciente(0130, "Wiliamsito", "Vargas", "Motoche", 572357, new Date(92,2,3))};      
+        Empleado em1 = new Empleado(446464625,"Antuan", "El", "Trenes", 955893215,new Date(82,4,5), Roles.ODONTOLOGO, "odon", "odon");
+        Empleado em2 = new Empleado(888979760,"Dolor", "A.", "Nal", 555984565, new Date(66,2,2),Roles.PROPIETARIO, "proper", "proper");
+        Empleado em3 = new Empleado(468456456,"Tete", "Colorado", "Nal", 34587535, new Date(77,5,3), Roles.RECEPCIONISTA, "tete", "tete");        
+        Paciente[] p = {new Paciente(74564667, "Loreto", "Prieto", "Memoles", 986980253, new Date(84,11,11)),
+                        new Paciente(25343579, "Manuel", "Revilla", "Tosco", 327529898, new Date(55,7,9)),
+                        new Paciente(41305468, "Wiliamsito", "Vargas", "Motoche", 572357535, new Date(92,2,3)),
+                        new Paciente(33356484, "Vaca", "Pascual", "Miura", 985432154, new Date(84,2,3)),
+                        new Paciente(99874536, "Toro", "Coronado", "Feito", 485623218, new Date(54,10,20)),
+                        new Paciente(56894523, "Rosas", "Mogollón", "Majadas", 598746579, new Date(60,9,14)),
+                        new Paciente(98863585, "Marcilla", "Moctezuma", "Teruel", 987956423, new Date(2,9,22)),
+                        new Paciente(12458987, "Alvaro", "Marín", "Alvaro", 673421892, new Date(72,12,16)),
+                        new Paciente(67634997, "Rebeca", "Jorge", "García", 856549873, new Date(66,4,4)),
+                        new Paciente(45663279, "Margarita", "Del Campo", "Cerda", 195948735, new Date(56,3,3)),
+                        new Paciente(84956722, "Mola", "Pascual", "Ojete", 878965376, new Date(81,1,24)),
+                        new Paciente(66549872, "Rosas", "Ramos", "Melones", 876377337, new Date(79,2,11)),
+                        new Paciente(78654325, "Francisco Javier", "Fernando", "Diego", 828995354, new Date(77,3,11)),
+                        new Paciente(47532735, "Antonio", "Cabezón", "Salido", 456324589, new Date(61,5,5)),};      
         Intervencion i1 = new Intervencion(em1, "Ortodoncia", 30,120);
         Intervencion i2 = new Intervencion(em1, "Limpieza", 80,90);
         Intervencion i3 = new Intervencion(em1, "Empaste", 50,210);
@@ -153,6 +164,17 @@ public class ClinicaDentalMain {
 //        }
         
         /* NOMBRES WAPETONES
+        new Paciente(33356484, "Vaca", "Pascual", "Miura", 985432154, new Date(84,2,3)),
+        new Paciente(99874536, "Toro", "Coronado", "Feito", 485623218, new Date(54,10,20)),
+        new Paciente(56894523, "Rosas", "Mogollón", "Majadas", 598746579, new Date(60,9,14)),
+        new Paciente(98863585, "Marcilla", "Moctezuma", "Teruel", 9879564236, new Date(2,9,22)),
+        new Paciente(12458987, "Alvaro", "Marín", "Alvaro", 673421892, new Date(72,12,16)),
+        new Paciente(67634997, "Rebeca", "Jorge", "García", 856549873, new Date(66,4,4)),
+        new Paciente(45663279, "Margarita", "Del Campo", "Cerda", 195948735, new Date(56,3,3)),
+        new Paciente(84956722, "Mola", "Pascual", "Ojete", 878965376, new Date(81,1,24)),
+        new Paciente(66549872, "Rosas", "Ramos", "Melones", 876377337, new Date(79,2,11)),
+        new Paciente(78654325, "Francisco Javier", "Fernando", "Diego", 828995354, new Date(77,3,11)),
+        new Paciente(47532735, "Antonio", "Cabezón", "Salido", 456324589, new Date(61,5,5)),
             Vaca Pascual
             Porro Minondo
             Toro Coronado
