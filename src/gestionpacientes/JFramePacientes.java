@@ -387,11 +387,7 @@ public class JFramePacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTablePacientesFocusGained
 
     private void jButtonBajaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaPacienteActionPerformed
-        ArrayList<Paciente> pacientes = Clinica.getPacientes();     
-        
-//        for (int i = 0; i < jTablePacientes.getSelectedRows().length; i++) {
-//            System.out.println(String.valueOf(pacientes.get(6).getDni()));
-//        }
+        ArrayList<Paciente> pacientes = Clinica.getPacientes();             
        
         for (int i = 0; i < jTablePacientes.getSelectedRows().length; i++) {
             for (int j = 0; j < pacientes.size(); j++) {
@@ -400,7 +396,24 @@ public class JFramePacientes extends javax.swing.JFrame {
                 }
             }            
         }
-        jTablePacientes.
+        
+        jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
         rellenarTabla();
         
     }//GEN-LAST:event_jButtonBajaPacienteActionPerformed
@@ -421,13 +434,12 @@ public class JFramePacientes extends javax.swing.JFrame {
     }
     
     private void rellenarTabla() {
-        ArrayList<Paciente> pacientes = Clinica.getPacientes();
+        ArrayList<Paciente> pacientesEnAlta = Clinica.getPacientesEnAlta();
         
-        for (int i = 0; i < pacientes.size(); i++) {
-            for (int j = 0; j < pacientes.get(i).datosTabla().length; j++) {
-                if (pacientes.get(i).isAlta())
-                    jTablePacientes.setValueAt(pacientes.get(i).datosTabla()[j],i,j);
-                
+        for (int i = 0; i < pacientesEnAlta.size(); i++) {
+            for (int j = 0; j < pacientesEnAlta.get(i).datosTabla().length; j++) {
+                if (pacientesEnAlta.get(i).isAlta())
+                    jTablePacientes.setValueAt(pacientesEnAlta.get(i).datosTabla()[j],i,j);                
             }
         }
     }

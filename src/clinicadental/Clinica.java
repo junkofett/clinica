@@ -81,6 +81,18 @@ public class Clinica {
         return citasPendientes;
     }
     
+    public static ArrayList<Paciente> getPacientesEnAlta(){
+        ArrayList<Paciente> pacientesEnAlta = new ArrayList<>(); 
+        
+        for (Paciente p: pacientes)
+            if (p.isAlta())
+                pacientesEnAlta.add(p);
+         
+         return pacientesEnAlta;
+         
+         
+    }
+    
     public static void mostrarEm(){
         for(Empleado em: empleados){
             System.out.println(em);
