@@ -342,7 +342,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
             activaGuardar();
         }else{
             jTextFieldDni.setBackground(Color.red);
-            jLabelError.setText("\"DNI\" debe ser un campo numerico");
+            jLabelError.setText("ERROR: \"DNI\" debe ser un campo numerico");
             jButtonGuardarPaciente.setEnabled(false);
         }
     }//GEN-LAST:event_jTextFieldDniFocusLost
@@ -354,7 +354,7 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
             activaGuardar();
         }else{
             jTextFieldTelefono.setBackground(Color.red);
-            jLabelError.setText("\"Telefono\" debe ser un campo numerico");
+            jLabelError.setText("ERROR: \"Telefono\" debe ser un campo numerico");
             jButtonGuardarPaciente.setEnabled(false);
         }
     }//GEN-LAST:event_jTextFieldTelefonoFocusLost
@@ -401,13 +401,13 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
         try{
             dni = Integer.parseInt(jTextFieldDni.getText());
         }catch(NumberFormatException e){
-            jLabelError.setText("\"DNI\" es un campo NUMERICO");
+            jLabelError.setText("ERROR: \"DNI\" es un campo NUMERICO");
         }
         
         try{            
             tlf = Integer.parseInt(jTextFieldTelefono.getText());
         }catch(NumberFormatException e){
-            jLabelError.setText("\"Telefono\" es un campo NUMERICO");
+            jLabelError.setText("ERROR: \"Telefono\" es un campo NUMERICO");
         } 
         
         Paciente[] p = {new Paciente(dni,

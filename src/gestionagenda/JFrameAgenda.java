@@ -51,7 +51,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonBuscarCita = new javax.swing.JButton();
         jButtonFiltrarCita = new javax.swing.JButton();
         jButtonModificarCita = new javax.swing.JButton();
-        jButtonBajaCita = new javax.swing.JButton();
+        jButtonMarcarRealizada = new javax.swing.JButton();
         jButtonEliminarCita = new javax.swing.JButton();
         jLabelImgFondo = new javax.swing.JLabel();
 
@@ -157,13 +157,23 @@ public class JFrameAgenda extends javax.swing.JFrame {
         jButtonModificarCita.setForeground(new java.awt.Color(255, 255, 255));
         jButtonModificarCita.setText("Modificar");
 
-        jButtonBajaCita.setBackground(new java.awt.Color(0, 128, 192));
-        jButtonBajaCita.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonBajaCita.setText("Baja");
+        jButtonMarcarRealizada.setBackground(new java.awt.Color(0, 128, 192));
+        jButtonMarcarRealizada.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonMarcarRealizada.setText("Marcar Realizada");
+        jButtonMarcarRealizada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMarcarRealizadaActionPerformed(evt);
+            }
+        });
 
         jButtonEliminarCita.setBackground(new java.awt.Color(0, 128, 192));
         jButtonEliminarCita.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminarCita.setText("Eliminar");
+        jButtonEliminarCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarCitaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
         jPanelTabla.setLayout(jPanelTablaLayout);
@@ -181,7 +191,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
                         .addComponent(jButtonModificarCita)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonBajaCita)
+                        .addComponent(jButtonMarcarRealizada)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonEliminarCita)))
                 .addContainerGap())
@@ -198,7 +208,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonModificarCita)
-                    .addComponent(jButtonBajaCita)
+                    .addComponent(jButtonMarcarRealizada)
                     .addComponent(jButtonEliminarCita))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
@@ -225,7 +235,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
                                     .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonIntervencion)
                                     .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                                 .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(22, 22, 22))
         );
@@ -280,7 +290,7 @@ public class JFrameAgenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        rellenarTabla();
+        rellenarTablaCitasPendientes();
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
@@ -310,6 +320,48 @@ public class JFrameAgenda extends javax.swing.JFrame {
     private void jButtonBuscarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCitaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarCitaActionPerformed
+
+    private void jButtonMarcarRealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMarcarRealizadaActionPerformed
+        encontrarCita().setRealizada(true);
+        
+    }//GEN-LAST:event_jButtonMarcarRealizadaActionPerformed
+
+    private void jButtonEliminarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarCitaActionPerformed
+        ArrayList<Cita> citas = Clinica.getAgenda();             
+       
+        for (int i = 0; i < jTableAgenda.getSelectedRows().length; i++) {
+            for (int j = 0; j < citas.size(); j++) {
+                if (jTableAgenda.getValueAt(jTableAgenda.getSelectedRows()[i], 0).equals(citas.get(j).getId())){
+                    citas.remove(j);
+                }
+            }  
+        }
+    }//GEN-LAST:event_jButtonEliminarCitaActionPerformed
+    
+    private Cita encontrarCita(){
+        ArrayList<Cita> citas = Clinica.getAgenda();
+        Cita citaEncontrada = null;
+        boolean encontrado = false;
+        
+        for (int i = 0; i < citas.size() && !encontrado; i++) {
+            if(jTableAgenda.getValueAt(jTableAgenda.getSelectedRow(),0).equals(citas.get(i).getId())){
+                encontrado = true;
+                citaEncontrada = citas.get(i);                 
+            }
+        }
+        
+        return citaEncontrada;
+    }
+    private void rellenarTablaCitasPendientes(){
+        ArrayList<Cita> citas = Clinica.getCitasPendientes();
+        
+        for (int i = 0; i < citas.size(); i++) {
+            for (int j = 0; j < citas.get(i).datosTabla().length; j++) {
+                jTableAgenda.setValueAt(citas.get(i).datosTabla()[j],i,j);
+            }
+        }
+    
+    }
     
     private void rellenarTabla() {
         ArrayList<Cita> citas = Clinica.getAgenda();
@@ -384,12 +436,12 @@ public class JFrameAgenda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgenda;
     private javax.swing.JButton jButtonArticulo;
-    private javax.swing.JButton jButtonBajaCita;
     private javax.swing.JButton jButtonBuscarCita;
     private javax.swing.JButton jButtonEliminarCita;
     private javax.swing.JButton jButtonEmpleado;
     private javax.swing.JButton jButtonFiltrarCita;
     private javax.swing.JButton jButtonIntervencion;
+    private javax.swing.JButton jButtonMarcarRealizada;
     private javax.swing.JButton jButtonModificarCita;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;

@@ -58,6 +58,8 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonEliminarPaciente = new javax.swing.JButton();
         jButtonAnadirPaciente = new javax.swing.JButton();
         jButtonNuevaCitaPaciente = new javax.swing.JButton();
+        jComboBoxFiltrarPor = new javax.swing.JComboBox();
+        jTextFieldFiltrarOpc = new javax.swing.JTextField();
         jLabelImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,6 +155,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonFiltrarPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonFiltrarPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonFiltrarPaciente.setText("Filtrar");
+        jButtonFiltrarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFiltrarPacienteActionPerformed(evt);
+            }
+        });
 
         jButtonBuscarPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonBuscarPaciente.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,6 +191,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonEliminarPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonEliminarPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminarPaciente.setText("Eliminar");
+        jButtonEliminarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarPacienteActionPerformed(evt);
+            }
+        });
 
         jButtonAnadirPaciente.setBackground(new java.awt.Color(0, 128, 192));
         jButtonAnadirPaciente.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,6 +212,13 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonNuevaCitaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonNuevaCitaPacienteActionPerformed(evt);
+            }
+        });
+
+        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Por Nombre", "Por Apellidos"}));
+        jComboBoxFiltrarPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFiltrarPorActionPerformed(evt);
             }
         });
 
@@ -221,11 +240,15 @@ public class JFramePacientes extends javax.swing.JFrame {
                         .addComponent(jButtonEliminarPaciente))
                     .addGroup(jPanelTablaLayout.createSequentialGroup()
                         .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonNuevaCitaPaciente)
                             .addGroup(jPanelTablaLayout.createSequentialGroup()
                                 .addComponent(jButtonBuscarPaciente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonFiltrarPaciente))
-                            .addComponent(jButtonNuevaCitaPaciente))
+                                .addComponent(jButtonFiltrarPaciente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldFiltrarOpc, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -235,7 +258,9 @@ public class JFramePacientes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBuscarPaciente)
-                    .addComponent(jButtonFiltrarPaciente))
+                    .addComponent(jButtonFiltrarPaciente)
+                    .addComponent(jComboBoxFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFiltrarOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -246,7 +271,7 @@ public class JFramePacientes extends javax.swing.JFrame {
                     .addComponent(jButtonAnadirPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonNuevaCitaPaciente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
@@ -271,7 +296,7 @@ public class JFramePacientes extends javax.swing.JFrame {
                                     .addComponent(jButtonPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonIntervencion)
                                     .addComponent(jButtonAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                                 .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(22, 22, 22))
         );
@@ -354,7 +379,7 @@ public class JFramePacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonArticuloActionPerformed
 
     private void jButtonBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPacienteActionPerformed
-        // TODO add your handling code here:
+        jLabelError.setText("Opcion \"Buscar\" en construcción");
     }//GEN-LAST:event_jButtonBuscarPacienteActionPerformed
 
     private void jButtonAnadirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirPacienteActionPerformed
@@ -412,9 +437,85 @@ public class JFramePacientes extends javax.swing.JFrame {
             }
         });
         
-        rellenarTabla();
-        
+        rellenarTabla();        
     }//GEN-LAST:event_jButtonBajaPacienteActionPerformed
+
+    private void jButtonEliminarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarPacienteActionPerformed
+        ArrayList<Paciente> pacientes = Clinica.getPacientes();             
+       
+        for (int i = 0; i < jTablePacientes.getSelectedRows().length; i++) {
+            for (int j = 0; j < pacientes.size(); j++) {
+                if (jTablePacientes.getValueAt(jTablePacientes.getSelectedRows()[i], 4).equals(pacientes.get(j).getDni())){
+                    pacientes.remove(j);
+                }
+            }            
+        }
+        
+        jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        rellenarTabla();
+    }//GEN-LAST:event_jButtonEliminarPacienteActionPerformed
+
+    private void jComboBoxFiltrarPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFiltrarPorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFiltrarPorActionPerformed
+
+    private void jButtonFiltrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarPacienteActionPerformed
+        String[] opc = {jComboBoxFiltrarPor.getSelectedItem().toString(), 
+                        jTextFieldFiltrarOpc.getText()};    
+        
+        filtrarPacientes(opc);
+    }//GEN-LAST:event_jButtonFiltrarPacienteActionPerformed
+    
+    private void filtrarPacientes(String[] opc){
+        ArrayList<Paciente> pacientes = Clinica.getPacientes();
+        ArrayList<Paciente> pacientesFiltrados = new ArrayList<>();
+        
+        for (Paciente p: pacientes) {
+            if(opc[0].equals("Por Nombre")){
+                if (p.getNombre().equals(opc[1])){
+                    pacientesFiltrados.add(p);     
+                }            
+            }else if (p.getApellido1().equals(opc[1]))
+                    pacientesFiltrados.add(p);
+                   
+        }
+        
+        jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(datos(),cabecera()){
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        rellenarTabla(pacientesFiltrados);    
+    }
+    
     
     private Paciente encontrarPaciente(){
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
@@ -429,6 +530,15 @@ public class JFramePacientes extends javax.swing.JFrame {
         }
         
         return pacienteEncontrado;
+    }
+    
+    private void rellenarTabla(ArrayList<Paciente> pacientesFiltrados) {        
+        for (int i = 0; i < pacientesFiltrados.size(); i++) {
+            for (int j = 0; j < pacientesFiltrados.get(i).datosTabla().length; j++) {
+                if (pacientesFiltrados.get(i).isAlta())
+                    jTablePacientes.setValueAt(pacientesFiltrados.get(i).datosTabla()[j],i,j);                
+            }
+        }
     }
     
     private void rellenarTabla() {
@@ -517,6 +627,7 @@ public class JFramePacientes extends javax.swing.JFrame {
     private javax.swing.JButton jButtonNuevaCitaPaciente;
     private javax.swing.JButton jButtonPaciente;
     private javax.swing.JButton jButtonSalir1;
+    private javax.swing.JComboBox jComboBoxFiltrarPor;
     private javax.swing.JLabel jLabelError;
     private javax.swing.JLabel jLabelImgFondo;
     private javax.swing.JLabel jLabelTitulo;
@@ -524,5 +635,6 @@ public class JFramePacientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTabla;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablePacientes;
+    private javax.swing.JTextField jTextFieldFiltrarOpc;
     // End of variables declaration//GEN-END:variables
 }

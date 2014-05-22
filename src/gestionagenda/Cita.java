@@ -66,6 +66,15 @@ public class Cita {
     public int getConsulta(){
         return consulta;
     }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setRealizada(boolean realizada){
+        this.realizada = realizada;
+    }
+    
     public String toString(){
         return "Cita: "+id+"\n Consulta: "+consulta+"\n Paciente: "+paciente+"\n Precio: "+intervencion.getPrecio();
     }
