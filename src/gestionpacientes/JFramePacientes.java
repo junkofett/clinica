@@ -330,11 +330,9 @@ public class JFramePacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
-        
         JFrameAgenda agenda = new JFrameAgenda();
         agenda.setVisible(true);
-        this.dispose();
-        
+        this.dispose();        
     }//GEN-LAST:event_jButtonAgendaActionPerformed
 
     private void jButtonIntervencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIntervencionActionPerformed
