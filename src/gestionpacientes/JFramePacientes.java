@@ -409,6 +409,13 @@ public class JFramePacientes extends javax.swing.JFrame {
         jButtonNuevaCitaPaciente.setEnabled(true);
     }//GEN-LAST:event_jTablePacientesFocusGained
 
+    /**
+     * Da de baja un Paciente tomando la selección de la Tabla
+     * 
+     * PENDIENTE A REFACTORIZAR
+     * 
+     * @param Evento de clicar el botón Baja
+     */
     private void jButtonBajaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBajaPacienteActionPerformed
         ArrayList<Paciente> pacientes = Clinica.getPacientes();             
        
@@ -440,6 +447,13 @@ public class JFramePacientes extends javax.swing.JFrame {
         rellenarTabla();        
     }//GEN-LAST:event_jButtonBajaPacienteActionPerformed
 
+    /**
+     * Elimina un Paciente del ArrayList "pacientes" en Clinica a través de la selección en la tabla
+     * 
+     * PENDIENTE A REFACTORIZAR
+     * 
+     * @param Evento de clicar el boton Eliminar
+     */
     private void jButtonEliminarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarPacienteActionPerformed
         ArrayList<Paciente> pacientes = Clinica.getPacientes();             
        
@@ -475,6 +489,12 @@ public class JFramePacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxFiltrarPorActionPerformed
 
+    /**
+     * Toma la selección de ComboBox para el criterio de filtro y el campo de texto
+     * y lo manda a filtrarPacientes(String[] opc)
+     * 
+     * @param Evento de clicar el boton Filtrar
+     */
     private void jButtonFiltrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarPacienteActionPerformed
         String[] opc = {jComboBoxFiltrarPor.getSelectedItem().toString(), 
                         jTextFieldFiltrarOpc.getText()};    
@@ -482,6 +502,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         filtrarPacientes(opc);
     }//GEN-LAST:event_jButtonFiltrarPacienteActionPerformed
     
+    /**
+     * Muestra en la tabla los pacientes que cumplen con el criterio de filtro
+     * 
+     * @param  Array con el criterio de filtro y el campo a filtrar
+     */    
     private void filtrarPacientes(String[] opc){
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
         ArrayList<Paciente> pacientesFiltrados = new ArrayList<>();
@@ -516,6 +541,14 @@ public class JFramePacientes extends javax.swing.JFrame {
         rellenarTabla(pacientesFiltrados);    
     }
     
+    /**
+     * Metodo que devuelve el paciente cuya representación en la tabla
+     * está seleccionada
+     * 
+     * PENDIENTE A REFACTORIZAR
+     * 
+     * @return Paciente encontrado
+     */
     
     private Paciente encontrarPaciente(){
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
@@ -532,6 +565,13 @@ public class JFramePacientes extends javax.swing.JFrame {
         return pacienteEncontrado;
     }
     
+    /**
+     * Metodo que rellena la tabla una vez se ha hecho un filtrado
+     * 
+     * PENDIENTE A REFACTORIZAR
+     * 
+     * @param ArrayList que representan los pacientes que cumplen con el filtro
+     */
     private void rellenarTabla(ArrayList<Paciente> pacientesFiltrados) {        
         for (int i = 0; i < pacientesFiltrados.size(); i++) {
             for (int j = 0; j < pacientesFiltrados.get(i).datosTabla().length; j++) {
@@ -541,6 +581,9 @@ public class JFramePacientes extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Metodo que rellena la tabla con los pacientes en Alta
+     */    
     private void rellenarTabla() {
         ArrayList<Paciente> pacientesEnAlta = Clinica.getPacientesEnAlta();
         
@@ -551,6 +594,12 @@ public class JFramePacientes extends javax.swing.JFrame {
             }
         }
     }
+    
+    /**
+     * Metodo que se usa para crear el model de la tabla
+     * 
+     * @return Object[][] con los datos para rellenar la tabla
+     */
     
     private Object[][] datos() {
         ArrayList<Paciente> pacientes = Clinica.getPacientes();
@@ -565,6 +614,11 @@ public class JFramePacientes extends javax.swing.JFrame {
         return datos;
     }
     
+    /**
+     * Metodo que se usa para crear el model de la tabla
+     * 
+     * @return String[] con las cabeceras de la tabla
+     */
     private String[] cabecera() {
         String[] cabecera = {"Nombre", "Apellido 1", "Apellido 2", "Fecha de Nacimiento", "DNI", "Telefono"};
         return cabecera;

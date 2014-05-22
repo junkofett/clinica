@@ -331,7 +331,7 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarAltaActionPerformed
 
     private void jButtonGuardarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarPacienteActionPerformed
-        anadirPaciente();
+        modificarPaciente();
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();
@@ -377,6 +377,10 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
        activaGuardar();
     }//GEN-LAST:event_jTextFieldEmailFocusLost
     
+    /**
+     * Comprueba que los campos obligatos si están rellenos y son correctos
+     * y si true activa el boton Guardar
+     */
     private void activaGuardar(){
         if(!jTextFieldDni.getText().equals("") && !jTextFieldTelefono.getText().equals("")
             && !jTextFieldNombre.getText().equals("") && !jTextFieldApe1.getText().equals("")
@@ -387,6 +391,12 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
                 jButtonGuardarPaciente.setEnabled(true);
     }
     
+    /**
+     * Comprueba que un String es un numero
+     * 
+     * @param String que queremos comprobar
+     * @return true si es numerico, false si no lo es
+     */
     private boolean esNumero(String s){
         try{
             int num = Integer.parseInt(s);
@@ -396,6 +406,11 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Rellena los campos del formulario con los datos del Paciente
+     * 
+     * @param Paciente con el que se rellena los campos.
+     */
     public void mostrarCampos(Paciente p){
         jTextFieldNombre.setText(p.getNombre());
         jTextFieldApe1.setText(p.getApellido1());
@@ -405,7 +420,10 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         jDateChooserFechaNac.setDate(p.getFechaNac());        
     }
     
-    private void anadirPaciente(){
+    /**
+     * Modifica el Paciente a través del formulario
+     */
+    private void modificarPaciente(){
         Date fechaNac = jDateChooserFechaNac.getDate();
         
         modPaciente.setNombre(jTextFieldNombre.getText());

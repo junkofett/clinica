@@ -375,6 +375,10 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
        activaGuardar();
     }//GEN-LAST:event_jTextFieldEmailFocusLost
     
+    /**
+     * Comprueba que los campos obligatos si están rellenos y son correctos
+     * y si true activa el boton Guardar
+     */
     private void activaGuardar(){
         if(!jTextFieldDni.getText().equals("") && !jTextFieldTelefono.getText().equals("")
             && !jTextFieldNombre.getText().equals("") && !jTextFieldApe1.getText().equals("")
@@ -384,6 +388,12 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
                 jButtonGuardarPaciente.setEnabled(true);
     }
     
+    /**
+     * Comprueba que un String es un numero
+     * 
+     * @param String que queremos comprobar
+     * @return true si es numerico, false si no lo es
+     */    
     private boolean esNumero(String s){
         try{
             int num = Integer.parseInt(s);
@@ -393,6 +403,10 @@ public class JFrameAltaPacientes extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Crea un objeto Paciente a traves del formulario y lo añade al ArrayList
+     * de la clase Clinica
+     */    
     private void anadirPaciente(){
         int dni = 0;
         int tlf = 0;
