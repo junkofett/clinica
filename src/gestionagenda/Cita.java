@@ -27,6 +27,15 @@ public class Cita {
     private Intervencion intervencion;
     private boolean realizada;
     
+    /**
+     * Constructor de citas
+     * 
+     * @param consulta donde se realizara la cita
+     * @param paciente que será intervenido
+     * @param intervencion a realizar
+     * @param realizada
+     * @param fecha 
+     */
     public Cita(int consulta, Paciente p, Intervencion inter, boolean realizada, Date fecha){
         id = ++idStatic;
         this.realizada = realizada;
@@ -36,12 +45,18 @@ public class Cita {
         this.fecha = fecha;
     }
     
+    /**
+     * Metodo para seleccionar los datos del paciente
+     * 
+     * @return array con los datos del paciente que queremos mostrar en la tabla
+     */
     public Object[] datosTabla(){
         Object[] s = {id, paciente.getNombre()+", "+paciente.getApellido1(),
                     intervencion.getNombre(),getConsulta(),getFecha(), new Boolean(realizada)};   
     
         return s;            
     }
+    
     
     public boolean getRealizada(){
         return realizada;

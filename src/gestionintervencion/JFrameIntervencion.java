@@ -284,24 +284,42 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Rellena la tabla de intervenciones
+     * 
+     * @param Evento de ventana abierta
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         rellenarTabla();
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Abre la ventana de Agenda y cierra la actual
+     * 
+     * @param Evento de Boton Agenda
+     */
     private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
-        
         JFrameAgenda agenda = new JFrameAgenda();
         agenda.setVisible(true);
-        this.dispose();
-        
+        this.dispose();    
     }//GEN-LAST:event_jButtonAgendaActionPerformed
 
+    /**
+     * Abre la ventana de Pacientes y cierra la actual
+     * 
+     * @param Evento de Boton Paciente
+     */
     private void jButtonPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacienteActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonPacienteActionPerformed
 
+    /**
+     * Abre la ventana de Articulo y cierra la actual
+     * 
+     * @param Evento de Boton Articulo
+     */
     private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
         JFrameArticulos articulos = new JFrameArticulos();
         articulos.setVisible(true);
@@ -316,6 +334,9 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAnadirIntervActionPerformed
     
+    /**    
+     * Rellena la tabla con las intervenciones guardadas en Clinica
+     */
     private void rellenarTabla() {
         ArrayList<Intervencion> intervenciones = Clinica.getIntervenciones();
         
@@ -326,6 +347,12 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Recopila la cantidad de datos que contiene los intervenciones en clinica,
+     * necesaria para crear el model de la tabla
+     * 
+     * @return Object[][] que contiene unicamente la cantidad de datos
+     */    
     private Object[][] datos() {
         ArrayList<Intervencion> intervenciones = Clinica.getIntervenciones();
         Object[][] datos = new Object[intervenciones.size()][cabecera().length];
@@ -339,6 +366,11 @@ public class JFrameIntervencion extends javax.swing.JFrame {
         return datos;
     }
     
+    /**
+     * Guarda las cabeceras de la Tabla
+     * 
+     * @return String[] con los nombres de las cabeceras de la tabla
+     */
     private String[] cabecera() {
         String[] cabecera = {"Nombre", "Duración", "Precio", "Especialista"};
         return cabecera;

@@ -320,16 +320,31 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Desactiva el boton Guardar
+     * 
+     * @param Evento de ventana abierta
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jButtonGuardarPaciente.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Abre la ventana Pacientes y cierra la actual
+     * 
+     * @param Evento de boton Cancelar
+     */
     private void jButtonCancelarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarAltaActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarAltaActionPerformed
 
+    /**
+     * modifica el paciente, Abre la ventana de Pacientes y cierra la actual
+     * 
+     * @param Evento de boton Guardar
+     */
     private void jButtonGuardarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarPacienteActionPerformed
         modificarPaciente();
         JFramePacientes pacientes = new JFramePacientes();
@@ -337,6 +352,12 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonGuardarPacienteActionPerformed
 
+    /**
+     * Cuando el campo de texto pierde foco, cambia el color de fondo dependiendo de
+     * si es correcto o no
+     * 
+     * @param Evento de foco perdido
+     */
     private void jTextFieldDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDniFocusLost
         if (esNumero(jTextFieldDni.getText())){
             jTextFieldDni.setBackground(Color.green);
@@ -349,6 +370,12 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldDniFocusLost
 
+    /**
+     * Cuando el campo de texto pierde foco, cambia el color de fondo dependiendo de
+     * si es correcto o no
+     * 
+     * @param Evento de foco perdido
+     */
     private void jTextFieldTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoFocusLost
         if (esNumero(jTextFieldTelefono.getText())){
             jTextFieldTelefono.setBackground(Color.green);
@@ -361,18 +388,38 @@ public class JFrameModificarPaciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldTelefonoFocusLost
 
+    /**
+     * Comprueba si el boton Guardar  se puede activar
+     * 
+     * @param Evento de foco perdido
+     */
     private void jTextFieldNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNombreFocusLost
         activaGuardar();
     }//GEN-LAST:event_jTextFieldNombreFocusLost
 
+    /**
+     * Comprueba si el boton Guardar  se puede activar
+     * 
+     * @param Evento de foco perdido
+     */
     private void jTextFieldApe1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldApe1FocusLost
         activaGuardar();
     }//GEN-LAST:event_jTextFieldApe1FocusLost
 
+    /**
+     * Comprueba si el boton Guardar  se puede activar
+     * 
+     * @param Evento de foco perdido
+     */
     private void jTextFieldApe2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldApe2FocusLost
         activaGuardar();
     }//GEN-LAST:event_jTextFieldApe2FocusLost
 
+    /**
+     * Comprueba si el boton Guardar  se puede activar
+     * 
+     * @param Evento de foco perdido
+     */
     private void jTextFieldEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEmailFocusLost
        activaGuardar();
     }//GEN-LAST:event_jTextFieldEmailFocusLost

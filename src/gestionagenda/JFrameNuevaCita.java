@@ -288,16 +288,31 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * cuando la ventana es abierta deshabilita el botón Guardar
+     * 
+     * @param Evento abrir ventana
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jButtonGuardarCita.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Abre la ventana de Nueva Cita y cierra la actual
+     * 
+     * @param Evento del boton Nueva Cita
+     */
     private void jButtonCancelarNuevaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarNuevaCitaActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarNuevaCitaActionPerformed
 
+    /**
+     * Anade un nueva cita, abre la ventana de Pacientes y cierra la actual
+     * 
+     * @param Evento del boton Guardar Cita
+     */
     private void jButtonGuardarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarCitaActionPerformed
         anadirCita();
         JFramePacientes pacientes = new JFramePacientes();
@@ -305,11 +320,23 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonGuardarCitaActionPerformed
 
+    /**
+     * Guarda la seleccion como atributo en la clase
+     * y comprueba si puede activar el boton Guardar
+     * 
+     * @param evt 
+     */
     private void jComboBoxIntervencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIntervencionesActionPerformed
         seleccionIntervencion();
         activaGuardar();
     }//GEN-LAST:event_jComboBoxIntervencionesActionPerformed
 
+    /**
+     * Cuando una propiedad es cambiada en jCalendar se actualizan las horas
+     * en la lista
+     * 
+     * @param Evento de cambio de propiedad
+     */
     private void jCalendarFechaCitaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarFechaCitaPropertyChange
         jListHorasDisponibles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = actualizarHoras();
@@ -318,19 +345,39 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jCalendarFechaCitaPropertyChange
 
+    /**
+     * Cuando jList gana foco muestra la hora y duración de la intervencion
+     * y comprueba que puede activar el botón Guardar
+     * 
+     * @param Evento de Foco ganado
+     */
     private void jListHorasDisponiblesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jListHorasDisponiblesFocusGained
         mostrarHoraYduracion();
         activaGuardar();
     }//GEN-LAST:event_jListHorasDisponiblesFocusGained
 
+    /**
+     * Cuando pierde el foco, comprueba que puede activar el boton Guardar
+     * 
+     * @param Evento de perdida de foco
+     */
     private void jTextFieldHorasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldHorasFocusLost
         activaGuardar();
     }//GEN-LAST:event_jTextFieldHorasFocusLost
 
+    /**
+     * Cuando pierde el foco, comprueba que puede activar el boton Guardar
+     * 
+     * @param Evento de perdida de foco
+     */
     private void jTextFieldMinutosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldMinutosFocusLost
         activaGuardar();
     }//GEN-LAST:event_jTextFieldMinutosFocusLost
     
+    /**
+     * Muestra la hora y minutos en los campos de texto relacionados y
+     * calcula el intervalo según la intervención, mostrandolo en jLabel
+     */
     private void mostrarHoraYduracion(){
         SimpleDateFormat sd = new SimpleDateFormat("hh:mm");
         int minutoNuevo = Integer.parseInt(jListHorasDisponibles.getSelectedValue().toString().substring(11));
@@ -345,7 +392,11 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         jLabelHoraHasta.setText("hasta: "+sd.format(fechaFin));
     }  
     
-    
+    /**
+     * Actualiza la lista donde se muestran los intervalos de tiempo que están citados
+     * 
+     * @return String[] que representa el model de la lista
+     */
     private String[] actualizarHoras(){
         ArrayList<Cita> citasPendientes = Clinica.getCitasPendientes();
         ArrayList<Cita> citasMismoDia = new ArrayList<>();
@@ -367,6 +418,10 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         return model;
     }
     
+    /**
+     * Toma la representacion de la Intervencion en ComboBox y añade el equivalente
+     * como atributo a la clase
+     */
     private void seleccionIntervencion(){
         String opc = String.valueOf(jComboBoxIntervenciones.getSelectedItem());
         
@@ -378,16 +433,31 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Muestra la duración de la intervención seleccionada en jLabel
+     * 
+     * @param Recibe la duración de la intervención representada en minutos
+     */
     private void mostrarDuracion(int duracion){        
         jLabelDuracion.setText("Duracion: "+duracion+" minutos");          
     }
     
+    /**
+     * Comprueba que los campos obligatorios están rellenos y son correctos
+     * si true, activa el boton Guardar
+     */
     private void activaGuardar(){
         if(!jTextFieldHoras.getText().equals("") && !jTextFieldMinutos.getText().equals("")) 
             if(esNumero(jTextFieldHoras.getText()) && esNumero(jTextFieldMinutos.getText()))
                 jButtonGuardarCita.setEnabled(true);
     }
     
+    /**
+     * Comprueba que la Cadena es un número
+     * 
+     * @param Cadena que se quiere comprobar
+     * @return true si la cadena es un numero, false si no
+     */
     private boolean esNumero(String s){
         try{
             int num = Integer.parseInt(s);
@@ -397,6 +467,10 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Llama al método de Clinica que añade cita, enviandole los parámetros
+     * recogidos en los campos del formulario
+     */
     private void anadirCita(){
        
         Date fechaCita = jCalendarFechaCita.getDate();
@@ -421,6 +495,9 @@ public class JFrameNuevaCita extends javax.swing.JFrame {
         Clinica.anadirCita(1, paciente, intervencionSeleccionada, false, fechaCita);
     }
     
+    /**
+     * Muestra el nombre del Paciente con el que se va a trabajar en el formulario
+     */
     private void mostrarPaciente(){
         jLabelPaciente.setText("Paciente: "+paciente.getNombre()+", "+paciente.getApellido1());
     }

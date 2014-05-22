@@ -349,45 +349,86 @@ public class JFramePacientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * rellena la tabla con los pacientes guardados en Clinica
+     * y deshabilita el boton NuevaCita
+     * 
+     * @param Evento de ventana abierta
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         rellenarTabla();
         jButtonNuevaCitaPaciente.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Abre una ventana de Agenda y cierra la actual
+     * 
+     * @param Evento de Boton Agenda
+     */
     private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
         JFrameAgenda agenda = new JFrameAgenda();
         agenda.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_jButtonAgendaActionPerformed
 
+    /**
+     * Abre una ventana de Intervencion y cierra la actual
+     * 
+     * @param Evento de Boton Intervencion
+     */
     private void jButtonIntervencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIntervencionActionPerformed
         JFrameIntervencion intervencion = new JFrameIntervencion();
         intervencion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonIntervencionActionPerformed
 
+    /**
+     * Abre una ventana de Empleados y cierra la actual
+     * 
+     * @param Evento de Boton Empleados
+     */
     private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
        JFrameEmpleados empleados = new JFrameEmpleados();
        empleados.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButtonEmpleadoActionPerformed
 
+    /**
+     * Abre una ventana de Articulos y cierra la actual
+     * 
+     * @param Evento de Boton Articulos
+     */
     private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
         JFrameArticulos articulos = new JFrameArticulos();
         articulos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonArticuloActionPerformed
 
+    /**
+     * En Construccion
+     * @param evt 
+     */
     private void jButtonBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPacienteActionPerformed
         jLabelError.setText("Opcion \"Buscar\" en construcción");
     }//GEN-LAST:event_jButtonBuscarPacienteActionPerformed
 
+    /**
+     * Abre una ventana de Alta Pacientes y cierra la actual
+     * 
+     * @param Evento de Boton Alta Pacientes
+     */
     private void jButtonAnadirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirPacienteActionPerformed
         JFrameAltaPacientes altapacientes = new JFrameAltaPacientes();
         altapacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonAnadirPacienteActionPerformed
 
+    /**
+     * Abre una ventana de modificacion de paciente si encuentra paciente seleccionado en 
+     * la tabla
+     * 
+     * @param Evento de Boton Modificar Paciente
+     */
     private void jButtonModPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModPacienteActionPerformed
         try{
         JFrameModificarPaciente modPaciente = new JFrameModificarPaciente(encontrarPaciente());
@@ -399,12 +440,22 @@ public class JFramePacientes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonModPacienteActionPerformed
 
+    /**
+     * Abre una ventana de Nueva Cita y cierra la actual
+     * 
+     * @param Evento de Boton Nueva Cita
+     */
     private void jButtonNuevaCitaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevaCitaPacienteActionPerformed
         JFrameNuevaCita nuevaCita = new JFrameNuevaCita(encontrarPaciente());
         nuevaCita.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonNuevaCitaPacienteActionPerformed
 
+    /**
+     * Activa el boton de Nueva Cita
+     * 
+     * @param Evento ganar foco
+     */
     private void jTablePacientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTablePacientesFocusGained
         jButtonNuevaCitaPaciente.setEnabled(true);
     }//GEN-LAST:event_jTablePacientesFocusGained

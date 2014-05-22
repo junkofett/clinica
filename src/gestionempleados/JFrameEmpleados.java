@@ -290,30 +290,53 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Rellena la tabla
+     * 
+     * @param Evento de ventana abierta
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         rellenarTabla();
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Abre la ventana de Agenda y cierra la actual
+     * 
+     * @param Evento de Boton Agenda
+     */
     private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
-        
         JFrameAgenda agenda = new JFrameAgenda();
         agenda.setVisible(true);
-        this.dispose();
-        
+        this.dispose();        
     }//GEN-LAST:event_jButtonAgendaActionPerformed
 
+    /**
+     * Abre la ventana de Pacientes y cierra la actual
+     * 
+     * @param Evento de Boton Pacientes
+     */
     private void jButtonPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacienteActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonPacienteActionPerformed
 
+    /**
+     * Abre la ventana de Intervenciones y cierra la actual
+     * 
+     * @param Evento de Boton Intervenciones
+     */
     private void jButtonIntervencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIntervencionActionPerformed
        JFrameIntervencion intervencion = new JFrameIntervencion();
         intervencion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonIntervencionActionPerformed
 
+    /**
+     * Abre la ventana de Artiuclos y cierra la actual
+     * 
+     * @param Evento de Boton Articulos
+     */
     private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
         JFrameArticulos articulos = new JFrameArticulos();
         articulos.setVisible(true);
@@ -328,6 +351,9 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAnadirEmpleActionPerformed
     
+    /**
+     * Rellena la tabla con los empleados guardados en Clinica
+     */
     private void rellenarTabla() {
         ArrayList<Empleado> empleados = Clinica.getEmpleados();
         
@@ -338,6 +364,12 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         }
     }
     
+     /**
+     * Recopila la cantidad de datos que contiene los empleados en clinica,
+     * necesaria para crear el model de la tabla
+     * 
+     * @return Object[][] que contiene unicamente la cantidad de datos
+     */
     private Object[][] datos() {
         ArrayList<Empleado> empleados = Clinica.getEmpleados();
         Object[][] datos = new Object[empleados.size()][cabecera().length];
@@ -351,6 +383,11 @@ public class JFrameEmpleados extends javax.swing.JFrame {
         return datos;
     }
     
+    /**
+     * Guarda las cabeceras de la Tabla
+     * 
+     * @return String[] con los nombres de las cabeceras de la tabla
+     */
     private String[] cabecera() {
         String[] cabecera = {"Nombre", "DNI", "Especialidad", "Telefono"};
         return cabecera;

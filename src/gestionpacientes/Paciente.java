@@ -26,6 +26,10 @@ public class Paciente extends Persona {
         super(dni, nomb, ape1, ape2, tlf, fechaNac);
     }
     
+    /**
+     * 
+     * @return recopilacion de los datos del paciente
+     */
     public Object[] datosTabla(){
         Date d = getFechaNac();
         String st = d.toString();

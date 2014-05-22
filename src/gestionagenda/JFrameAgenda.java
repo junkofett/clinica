@@ -289,28 +289,53 @@ public class JFrameAgenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Rellena la tabla de Citas con las citas Pendientes
+     * 
+     * @param Evento de ventana abierta
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         rellenarTablaCitasPendientes();
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Abre la ventana de Empleados y cierra la actual
+     * 
+     * @param Evento de boton de Empleado
+     */
     private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
         JFrameEmpleados empleados = new JFrameEmpleados();
         empleados.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonEmpleadoActionPerformed
 
+    /**
+     * Abre la ventana de Pacientes y cierra la actual
+     * 
+     * @param Evento de boton Pacientes
+     */
     private void jButtonPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacienteActionPerformed
         JFramePacientes pacientes = new JFramePacientes();
         pacientes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonPacienteActionPerformed
 
+    /**
+     * Abre la ventana de Intervenciones y cierra la actual
+     * 
+     * @param Evento de boton intervenciones
+     */
     private void jButtonIntervencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIntervencionActionPerformed
         JFrameIntervencion intervencion = new JFrameIntervencion();
         intervencion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonIntervencionActionPerformed
 
+    /**
+     * Abre la ventana de Articulos y cierra la actual
+     * 
+     * @param Evento de boton articulos
+     */
     private void jButtonArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArticuloActionPerformed
         JFrameArticulos articulos = new JFrameArticulos();
         articulos.setVisible(true);
@@ -321,11 +346,20 @@ public class JFrameAgenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarCitaActionPerformed
 
+    /**
+     * Marca como realizada  la cita seleccionada
+     * 
+     * @param Evento de Boton Marcar Realizada
+     */
     private void jButtonMarcarRealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMarcarRealizadaActionPerformed
-        encontrarCita().setRealizada(true);
-        
+        encontrarCita().setRealizada(true);        
     }//GEN-LAST:event_jButtonMarcarRealizadaActionPerformed
 
+    /**
+     * Borra las citas que estan seleccionadas
+     * 
+     * @param Evento boton Eliminar
+     */
     private void jButtonEliminarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarCitaActionPerformed
         ArrayList<Cita> citas = Clinica.getAgenda();             
        
@@ -338,6 +372,11 @@ public class JFrameAgenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonEliminarCitaActionPerformed
     
+    /**
+     * Encuentra la cita que cumple con el criterio de busqueda ID
+     * 
+     * @return citaEncontrada
+     */
     private Cita encontrarCita(){
         ArrayList<Cita> citas = Clinica.getAgenda();
         Cita citaEncontrada = null;
@@ -352,6 +391,10 @@ public class JFrameAgenda extends javax.swing.JFrame {
         
         return citaEncontrada;
     }
+    
+    /**
+     * Rellena la tabla con las citas NO realizadas 
+     */
     private void rellenarTablaCitasPendientes(){
         ArrayList<Cita> citas = Clinica.getCitasPendientes();
         
@@ -363,6 +406,9 @@ public class JFrameAgenda extends javax.swing.JFrame {
     
     }
     
+    /**
+     * Rellena la tabla con todas las citas de la agenda
+     */
     private void rellenarTabla() {
         ArrayList<Cita> citas = Clinica.getAgenda();
         
@@ -373,6 +419,12 @@ public class JFrameAgenda extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Recopila la cantidad de datos que contiene las citas de la agenda,
+     * necesaria para crear el model de la tabla
+     * 
+     * @return Object[][] que contiene unicamente la cantidad de datos
+     */
     private Object[][] datos() {
         ArrayList<Cita> citas = Clinica.getAgenda();
         Object[][] datos = new Object[citas.size()][cabecera().length];
@@ -386,6 +438,11 @@ public class JFrameAgenda extends javax.swing.JFrame {
         return datos;
     }
     
+    /**
+     * Guarda las cabeceras de la Tabla
+     * 
+     * @return String[] con los nombres de las cabeceras de la tabla
+     */
     private String[] cabecera() {
         String[] cabecera = {"ID", "Paciente", "Tipo Intervencion", "Consulta", "Fecha", "Realizada"};
         return cabecera;
